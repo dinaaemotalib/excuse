@@ -14,3 +14,23 @@ function validate() {
     }
 }
 
+document.getElementById('loginnnnnnn').addEventListener("submit" , function(event){
+    event.preventDefault();
+    var username = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var user = localStorage.getItem(username);
+    if(user){
+        var parseduser = JSON.parse(user);
+        if(parseduser.password === password){
+            localStorage.setItem('user',JSON.stringify(parseduser));
+            window.location.href = "../emp_homepage.html";
+        }
+        else{
+            alert("incorrect password");
+        }
+    }
+    else{
+        alert("user not found");
+    }
+})
+

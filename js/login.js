@@ -1,36 +1,123 @@
-function validate() {
-    let user = document.getElementById("email").value;
-    let user2 = document.getElementById("email");
-    let re = 
-        /^([a-zA-Z0-9._%-]+@eg.aiecons.com)$/i;
-    if (re.test(user)) {
-        window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdjjElQ67_PRaav79-kk8rK9P1FxPZr0XjM7-_31W8awu7NYQ/viewform?usp=sf_link";
-        alert("done");
-        return true;
-    }
-    else {
-        user2.style.border = "red solid 3px";
-        return false;
+// function validate() {
+//     let user = document.getElementById("email").value;
+//     let user2 = document.getElementById("email");
+//     let re = 
+//         /^([a-zA-Z0-9._%-]+@eg.aiecons.com)$/i;
+//     if (re.test(user)) {
+//         window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdjjElQ67_PRaav79-kk8rK9P1FxPZr0XjM7-_31W8awu7NYQ/viewform?usp=sf_link";
+//         alert("done");
+//         return true;
+//     }
+//     else {
+//         user2.style.border = "red solid 3px";
+//         return false;
+//     }
+// }
+
+
+// function validate(){
+// document.getElementById('loginform').addEventListener("submit" , function(event){
+//     event.preventDefault();
+//     var username = document.getElementById("emp_id").value;
+//     var password = document.getElementById("emp_password").value;
+//     var user = localStorage.getItem(username);
+//     if(user){
+//         var parseduser = JSON.parse(user);
+//         if(parseduser.password === password){
+//             localStorage.setItem('user',JSON.stringify(parseduser));
+//             window.location.href = "../emp_homepage.html";
+//         }
+//         else{
+//             alert("incorrect password");
+//         }
+//     }
+//     else{
+//         alert("user not found");
+//     }
+// })
+
+// }
+
+
+// Function to validate login
+function validate(event) {
+    event.preventDefault();  // Prevent form from submitting traditionally
+
+    // Get input values
+    var empId = parseInt(document.getElementById("emp_id").value);  // Parse to integer
+    var empPassword = document.getElementById("emp_password").value;
+
+    // Retrieve the employees array from local storage
+    var employees = JSON.parse(localStorage.getItem("employees")) || [];
+
+    // Find the employee by emp_id
+    var user = employees.find(emp => emp.emp_id === empId);
+
+    // Validate user credentials
+    if (user) {
+        if (user.emp_password === empPassword) {
+            // Store the logged-in user data in local storage
+            localStorage.setItem('user', JSON.stringify(user));
+            // Redirect to employee homepage
+            window.location.href = "../emp_homepage.html";
+        } else {
+            alert("Incorrect password");
+        }
+    } else {
+        alert("User not found");
     }
 }
 
-document.getElementById('loginnnnnnn').addEventListener("submit" , function(event){
-    event.preventDefault();
-    var username = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    var user = localStorage.getItem(username);
-    if(user){
-        var parseduser = JSON.parse(user);
-        if(parseduser.password === password){
-            localStorage.setItem('user',JSON.stringify(parseduser));
-            window.location.href = "../emp_homepage.html";
+// Attach the validate function to the form's submit event
+document.getElementById("loginform").addEventListener("submit", validate);
+
+
+// Define employee data and store it if not already stored
+if (!localStorage.getItem("employees")) {
+    const employees = [
+        {
+            emp_id: 1,
+            emp_mail: "jane.doe@example.com",
+            emp_name: "Jane Doe",
+            emp_gender: "Female",
+            emp_role: "CTO",
+            senior_id: null,
+            emp_password: "securePass123"
+        },
+        {
+            emp_id: 2,
+            emp_mail: "john.smith@example.com",
+            emp_name: "John Smith",
+            emp_gender: "Male",
+            emp_role: "HR",
+            senior_id: 1,
+            emp_password: "password456"
+        },
+        {
+            emp_id: 3,
+            emp_mail: "alice.jones@example.com",
+            emp_name: "Alice Jones",
+            emp_gender: "Female",
+            emp_role: "Senior",
+            senior_id: 1,
+            emp_password: "alicePass789"
+        },
+        {
+            emp_id: 4,
+            emp_mail: "bob.brown@example.com",
+            emp_name: "Bob Brown",
+            emp_gender: "Male",
+            emp_role: "Jr",
+            senior_id: 3,
+            emp_password: "bobPassword321"
         }
-        else{
-            alert("incorrect password");
-        }
-    }
-    else{
-        alert("user not found");
-    }
-})
+    ];
+
+    // Store data in local storage
+    localStorage.setItem("employees", JSON.stringify(employees));
+    console.log("Employee data has been added to local storage.");
+}
+
+// Initialize validate function
+window.onload = validate;
 

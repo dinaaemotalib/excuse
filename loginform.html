@@ -131,42 +131,33 @@
 
       <!-------------------------- Right Box ---------------------------->
          <div class="col-md-6 right-box">
-            <div class="row align-items-center">
-                  <div class="header-text mb-4">
-                       <h2>Hello</h2>
-                       <p class=" hello-p text-center">We are happy to have you in our team.</p>
-                  </div>
-                  <div  data-mdb-input-init class="input-group mb-3">
-                      <input type="email"  name="email" id="email" class="form-control form-control-lg bg-light fs-6" placeholder="Email address" required>
-                      <div class="invalid-feedback">
-                        Please Enter your E-mail
-                      </div>
-                  </div>
-                  <div  data-mdb-input-init class="input-group mb-1">
-                      <input type="password" name="username" id="password" class="form-control form-control-lg bg-light fs-6" placeholder="Password" required>
-                      <div class="invalid-feedback">
-                        Please Enter Your Password.
-                      </div>
-                  </div>
-                  <!-- <div class="input-group my-3 d-flex justify-content-between">
-                      <div class="form-check">
-                          <input type="checkbox" class="form-check-input" id="formCheck">
-                          <label for="formCheck" class="form-check-label text-secondary"><small>Remember Me</small></label>
-                      </div>
-                      <div class="forgot">
-                          <small><a href="#">Forgot Password?</a></small>
-                      </div>
-                  </div> -->
-                  <div class="input-group my-3">
-                      <button onclick="validate()" data-mdb-button-init data-mdb-ripple-init class="btn btn-lg btn-primary w-100 fs-6" style="background-color: #3B5998" type="submit" value="create" id="submit">Login</button>
-                  </div>
-                  <!-- <div class="input-group mb-3">
-                      <button class="btn btn-lg btn-light w-100 fs-6 text-black"><img src="images/google.png" style="width:20px" class="me-2"><small>Sign In with Google</small></button>
-                  </div> -->
-                  <!-- <div class="row text-center">
-                      <small>Don't have account? <a href="#">Sign Up</a></small>
-                  </div> -->
-            </div>
+          <div class="row align-items-center">
+            <form id="loginform" class="w-100">
+                <div class="header-text mb-4">
+                    <h2>Hello</h2>
+                    <p class="hello-p text-center">We are happy to have you in our team.</p>
+                </div>
+                
+                <div data-mdb-input-init class="input-group mb-3">
+                    <input type="text" name="emp_id" id="emp_id" class="form-control form-control-lg bg-light fs-6" placeholder="Enter Your ID" required>
+                    <div class="invalid-feedback">
+                        Please enter your ID.
+                    </div>
+                </div>
+        
+                <div data-mdb-input-init class="input-group mb-1">
+                    <input type="password" name="emp_password" id="emp_password" class="form-control form-control-lg bg-light fs-6" placeholder="Password" required>
+                    <div class="invalid-feedback">
+                        Please enter your password.
+                    </div>
+                </div>
+                
+                <div class="input-group mb-3">
+                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-lg btn-primary w-100 fs-6" style="background-color: #3B5998" type="submit" id="submit">Login</button>
+                </div>
+            </form>
+        </div>
+        
          </div> 
         </div>
       </div>

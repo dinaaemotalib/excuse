@@ -3,7 +3,7 @@
 //     document.getElementById('requestType').value = 'Leave';
 //   });
 
-const { log } = require("console");
+// const { log } = require("console");
 
 // const { jar } = require("request");
 
@@ -82,10 +82,10 @@ var endLeave = document.getElementById("endLeave");
 var leaveReason = document.getElementById("leaveReason");
 var leaveSenior = document.getElementById("leaveSenior");
 var submitbtn = document.getElementById("leavebtn")
-// var requests = []
+var requests = []
 
 
-function sendRequest(){
+function sendLeaveRequest(){
 
     var request={
         leaveType: leaveType.value,
@@ -94,8 +94,56 @@ function sendRequest(){
         leaveReason: leaveReason.value,
         leaveSenior: leaveSenior.value,
     }
-    console.log(request);
-    
-    
+   
+    requests.push(request)
+    console.log(requests);  
+    clearLeaveform() ; 
 }
 
+
+function clearLeaveform(){
+    leaveSenior.value = null
+    leaveReason.value = null
+    endLeave.value = null
+    startLeave.value = null
+    leaveType.value = null
+}
+
+
+
+var form = document.getElementById('excuseType')
+var excuseType = document.getElementById("excuseType");
+var excuseDate = document.getElementById("excuseDate");
+var startexcuse = document.getElementById("fromTime");
+var endexcuse = document.getElementById("toTime");
+var excuseReason = document.getElementById("excuseReason");
+var excuseSenior = document.getElementById("excuseSenior");
+var submitexcusebtn = document.getElementById("leavebtn")
+var excuseRequests = []
+
+
+function sendExcuseRequest(){
+
+    var excuseRequest={
+        excuseType : excuseType.value,
+        excuseDate : excuseDate.value,
+        startexcuse : startexcuse.value,
+        endexcuse : endexcuse.value,
+        excuseReason : excuseReason.value,
+        excuseSenior : excuseSenior.value
+    }
+   
+    excuseRequests.push(excuseRequest)
+    console.log(excuseRequests);  
+    excuseclearform() ; 
+}
+
+
+function excuseclearform(){
+    excuseType.value= null
+    excuseDate.value = null
+    startexcuse.value = null
+    endexcuse.value = null
+    excuseReason.value= null
+    excuseSenior.value = null
+}

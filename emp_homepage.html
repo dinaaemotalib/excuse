@@ -501,7 +501,7 @@
                </div>
                <div class="modal-footer">
                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                 <button onclick='sendRequest()' type="submit" class="btn btn-outline-info" id="leavebtn">Send Request</button>
+                 <button onclick='sendLeaveRequest()' class="btn btn-outline-info" id="leavebtn">Send Request</button>
                </div>
              </div>
            </div>
@@ -547,8 +547,8 @@
 
 
            <div class="form-group">
-             <label for="leaveType">Choose Your Senior</label>
-             <select class="form-control" id="leaveSenior" required>
+             <label for="excuseSenior">Choose Your Senior</label>
+             <select class="form-control" id="excuseSenior" required>
                <option>choose your senior</option>
                <option value="diaatarek@eg.aiecons.com">Eng. Diaa Tarek</option>
                <option value="ahmed.mahmoud@eg.aiecons.com">Eng. Ahmed Mahmoud</option>
@@ -569,7 +569,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-outline-info">Send Request</button>
+        <button onclick='sendExcuseRequest()' class="btn btn-outline-info">Send Request</button>
       </div>
     </div>
   </div>

@@ -339,7 +339,7 @@
         </div>
 
         <div class="col-md-6 col-lg-4 column z-0">
-          <div class="card gr-2" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+          <div class="card gr-2" data-bs-toggle="modal" data-bs-target="#exampleModal1" id="leaveRequestCard">
             <div class="txt">
               <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button> -->
               <h1>Leave Request</h1>
@@ -433,32 +433,31 @@
                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
                <div class="modal-body">
-                 <form>
-                   <!-- <div class="mb-3">
-                     <label for="leaveType" class="col-form-label">Recipient:</label>
-           
-                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="leaveType">
-                      Dropdown button
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                 <form id="leaveForm">
 
-                   </div> -->
-
-                   <div class="form-group">
+                     <!-- Hidden input to store request_type -->
+          <input type="hidden" name="request_type" id="requestType" value="Leave">
+          <!-- Hidden input to store leaveType as ENUM -->
+          <input type="hidden" name="leave_type" id="leaveTypeEnum" value="">
+          <!-- Hidden input to store leaveType as ENUM -->
+          <input type="hidden" name="request_date" id="requestDate" value="">
+          <!-- Hidden input to store leaveType as ENUM -->
+          <input type="hidden" name="submit_date" id="submitDate" value="">
+          <!-- Hidden input to store leaveType as ENUM -->
+          <input type="hidden" name="request_status" id="requestStatus" value="Pending">
+          <!-- Hidden input to store leaveType as ENUM -->
+          <input type="hidden" name="emp_id" id="empId" value="">
+                  
 
                     <div class="form-group">
                       <label for="leaveType">Leave Type</label>
                       <select class="form-control" id="leaveType" required>
                         <option>choose your leave type</option>
-                        <option>Annual Leaves</option>
-                        <option>Sick Leave</option>
-                        <option>Relative Death</option>
-                        <option>Hajj Leave</option>
-                        <option>Labor Leave</option>
+                        <option value="Annual Leaves">Annual Leaves</option>
+                        <option value="Sick Leave">Sick Leave</option>
+                        <option value="Relative Death">Relative Death</option>
+                        <option value="Hajj Leave">Hajj Leave</option>
+                        <option value="Labor Leave">Labor Leave</option>
                       </select>
                     </div>
 
@@ -496,36 +495,13 @@
                       <label for="doc" class="form-label">upload any supporting documents (e.g., medical prescription)</label>
                       <input class="form-control" type="file" id="doc">
                     </div>
-                  
 
-                    <!-- <label for="exampleFormControlInput1">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                  
-
-
-
-                  <div class="form-group">
-                    <label for="exampleFormControlSelect2">Example multiple select</label>
-                    <select multiple class="form-control" id="exampleFormControlSelect2">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                  </div>
-                  
-                   <div class="mb-3">
-                     <label for="message-text" class="col-form-label">Message:</label>
-                     <textarea class="form-control" id="message-text"></textarea>
-                   </div> -->
-
-                   </div>
+                   
                  </form>
                </div>
                <div class="modal-footer">
                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                 <button type="submit" class="btn btn-outline-info">Send Request</button>
+                 <button onclick='sendRequest()' type="submit" class="btn btn-outline-info" id="leavebtn">Send Request</button>
                </div>
              </div>
            </div>
@@ -674,7 +650,7 @@
     <script type="module" src="js/empHome.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script  src="js/request.js"></script>
+    
 
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -683,6 +659,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
             </script>
+
+        <script  src="js/request.js"></script>
 
 <!-- <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.2.0/main.js"></script>

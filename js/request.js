@@ -1,115 +1,43 @@
-//   // Set request_type to 'Leave' when the Leave Request card is clicked
-//   document.getElementById('leaveRequestCard').addEventListener('click', function() {
-//     document.getElementById('requestType').value = 'Leave';
-//   });
-
-// const { log } = require("console");
-
-// const { jar } = require("request");
-
-
-//   // Set leave_type based on selected leave type
-//   document.getElementById('leaveType').addEventListener('change', function() {
-//     const selectedLeaveType = this.value;
-//     document.getElementById('leaveTypeEnum').value = selectedLeaveType;
-//   });
-
-//   // Function to submit the form (optional)
-//   function submitForm() {
-//     document.getElementById('leaveForm').submit();
-//   }
+// //leave
+// var form = document.getElementById('leaveForm')
+// var leaveType = document.getElementById("leaveType");
+// var startLeave = document.getElementById("startLeave");
+// var endLeave = document.getElementById("endLeave");
+// var leaveReason = document.getElementById("leaveReason");
+// var leaveSenior = document.getElementById("leaveSenior");
+// var submitbtn = document.getElementById("leavebtn")
+// var requests = []
 
 
 
-//    // Set leave type ENUM value on change
-//    document.getElementById('leaveType').addEventListener('change', function() {
-//     document.getElementById('leaveTypeEnum').value = this.value;
-//   });
+// function sendLeaveRequest(){
 
-//   // Set request date and submission date on modal open
-//   document.getElementById('exampleModal1').addEventListener('show.bs.modal', function() {
-//     const today = new Date().toISOString().split('T')[0];
-//     document.getElementById('requestDate').value = today;
-//     document.getElementById('submitDate').value = today;
-//   });
-
-//   // Function to submit the form and calculate duration
-//   function submitLeaveRequest() {
-//     const start = new Date(document.getElementById('startLeave').value);
-//     const end = new Date(document.getElementById('endLeave').value);
-//     const duration = (end - start) / (1000 * 60 * 60); // Duration in hours
-//     document.getElementById('leaveForm').request_duration = duration;
-
-//     // Submit form
-//     document.getElementById('leaveForm').submit();
-//   }
-
-
-
-
-
-
-
-
-//   document.getElementById("leaveForm").addEventListener("submit", function(event) {
-//     event.preventDefault();  // Prevent the form from submitting normally
-
-//     // Collect form data
-//     const leaveType = document.getElementById("leaveType").value;
-//     const startLeave = document.getElementById("startLeave").value;
-//     const endLeave = document.getElementById("endLeave").value;
-//     const leaveReason = document.getElementById("leaveReason").value;
-//     const leaveSenior = document.getElementById("leaveSenior").value;
-
-//     // Save data to local storage
-//     localStorage.setItem("leaveRequest", JSON.stringify({
-//         leaveType,
-//         startLeave,
-//         endLeave,
-//         leaveReason,
-//         leaveSenior
-//     }));
-
-//     alert("Leave request saved to local storage!");
-// });
-
-
-
-var form = document.getElementById('leaveForm')
-var leaveType = document.getElementById("leaveType");
-var startLeave = document.getElementById("startLeave");
-var endLeave = document.getElementById("endLeave");
-var leaveReason = document.getElementById("leaveReason");
-var leaveSenior = document.getElementById("leaveSenior");
-var submitbtn = document.getElementById("leavebtn")
-var requests = []
-
-
-function sendLeaveRequest(){
-
-    var request={
-        leaveType: leaveType.value,
-        startLeave: startLeave.value,
-        endLeave: endLeave.value,
-        leaveReason: leaveReason.value,
-        leaveSenior: leaveSenior.value,
-    }
+//     var request={
+//         leaveType: leaveType.value,
+//         startLeave: startLeave.value,
+//         endLeave: endLeave.value,
+//         leaveReason: leaveReason.value,
+//         leaveSenior: leaveSenior.value,
+//     }
    
-    requests.push(request)
-    console.log(requests);  
-    clearLeaveform() ; 
-}
+//     requests.push(request)
+//     console.log(requests);  
+//     clearLeaveform() ; 
+// }
 
 
-function clearLeaveform(){
-    leaveSenior.value = null
-    leaveReason.value = null
-    endLeave.value = null
-    startLeave.value = null
-    leaveType.value = null
-}
+// function clearLeaveform(){
+//     leaveSenior.value = null
+//     leaveReason.value = null
+//     endLeave.value = null
+//     startLeave.value = null
+//     leaveType.value = null
+// }
 
 
+
+
+//excuse
 
 var form = document.getElementById('excuseType')
 var excuseType = document.getElementById("excuseType");
@@ -118,7 +46,7 @@ var startexcuse = document.getElementById("fromTime");
 var endexcuse = document.getElementById("toTime");
 var excuseReason = document.getElementById("excuseReason");
 var excuseSenior = document.getElementById("excuseSenior");
-var submitexcusebtn = document.getElementById("leavebtn")
+var submitexcusebtn = document.getElementById("excusebtn")
 var excuseRequests = []
 
 
@@ -134,6 +62,22 @@ function sendExcuseRequest(){
     }
    
     excuseRequests.push(excuseRequest)
+    localStorage.setItem('allexcuses' , JSON.stringify(excuseRequests))
+    displayRequests()
+    
+// document.addEventListener("DOMContentLoaded", function() {
+//     displayRequests();
+// });
+
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     if (document.getElementById('myExcuse')) {
+//         displayRequests();
+//     } else {
+//         console.error("Element with id myExcuse not found.");
+//     }
+// });
+
     console.log(excuseRequests);  
     excuseclearform() ; 
 }
@@ -147,3 +91,92 @@ function excuseclearform(){
     excuseReason.value= null
     excuseSenior.value = null
 }
+
+
+var requests=[
+    {excuseType:'annual' , excuseDate:'2/5' , startexcuse:'2:00' , endexcuse:'4:00' , excuseReason:'no' , excuseSenior:'dina@g.edu'},
+    {excuseType:'annual' , excuseDate:'2/5' , startexcuse:'2:00' , endexcuse:'4:00' , excuseReason:'no' , excuseSenior:'dina@g.edu'},
+    {excuseType:'annual' , excuseDate:'2/5' , startexcuse:'2:00' , endexcuse:'4:00' , excuseReason:'no' , excuseSenior:'dina@g.edu'},
+    {excuseType:'annual' , excuseDate:'2/5' , startexcuse:'2:00' , endexcuse:'4:00' , excuseReason:'no' , excuseSenior:'dina@g.edu'},
+]
+var cartona = ''
+
+for(var i = 0 ; i < requests.length ; i++){
+
+   cartona+=`
+                    <tr>
+                       
+                       <td class="text-center">${requests[i].excuseType}</td>
+                       <td class="text-center">${requests[i].excuseDate}</td>
+                       <td class="text-center">${requests[i].startexcuse}</td>
+                       <td class="text-center">${requests[i].endexcuse}</span></td>
+                       <td class="text-center">${requests[i].excuseReason}</span></td>
+                       <td class="text-center">${requests[i].excuseSenior}</span></td>
+                       <td class="text-center"><div class="alert alert-warning m-0 p-0" role="alert">Pending</div></span></td>
+                      
+                   </tr> `
+    
+}
+console.log(cartona);
+
+
+
+
+
+//my excuse requests
+
+function displayRequests(){
+
+    var cartona = ''
+
+
+    for(var i = 0 ; i < excuseRequests.length; i++){
+
+        cartona+=`
+                   <tr>
+                       
+                       <td class="text-center">Excuse</td>
+                       <td class="text-center">3/12/2016</td>
+                       <td class="text-center">30 mins</span></td>
+                       <td class="text-center"><div class="alert alert-warning m-0 p-0" role="alert">Pending</div></span></td>
+                      
+                   </tr> 
+ `
+        
+    }
+
+    document.getElementById('myExcuse').innerHTML=cartona
+}
+
+
+
+
+
+// function displayRequests() {
+//     // Check if the element with id 'myExcuse' exists
+//     const myExcuseTable = document.getElementById('myExcuse');
+//     if (!myExcuseTable) {
+//         console.error("Element with id 'myExcuse' not found.");
+//         return;  // Exit function if element is not found
+//     }
+
+//     // Assuming 'excuseRequests' is a global variable that is already defined
+//     let cartona = '';
+//     for (let i = 0; i < excuseRequests.length; i++) {
+//         cartona += `
+//             <tr>
+//                 <td class="text-center">Excuse</td>
+//                 <td class="text-center">3/12/2016</td>
+//                 <td class="text-center">30 mins</td>
+//                 <td class="text-center"><div class="alert alert-warning m-0 p-0" role="alert">Pending</div></td>
+//             </tr>
+//         `;
+//     }
+
+//     // Set the innerHTML after loop completes
+//     myExcuseTable.innerHTML = cartona;
+// }
+
+
+
+

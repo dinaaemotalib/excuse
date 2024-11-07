@@ -1,42 +1,3 @@
-// //leave
-// var form = document.getElementById('leaveForm')
-// var leaveType = document.getElementById("leaveType");
-// var startLeave = document.getElementById("startLeave");
-// var endLeave = document.getElementById("endLeave");
-// var leaveReason = document.getElementById("leaveReason");
-// var leaveSenior = document.getElementById("leaveSenior");
-// var submitbtn = document.getElementById("leavebtn")
-// var requests = []
-
-
-
-// function sendLeaveRequest(){
-
-//     var request={
-//         leaveType: leaveType.value,
-//         startLeave: startLeave.value,
-//         endLeave: endLeave.value,
-//         leaveReason: leaveReason.value,
-//         leaveSenior: leaveSenior.value,
-//     }
-   
-//     requests.push(request)
-//     console.log(requests);  
-//     clearLeaveform() ; 
-// }
-
-
-// function clearLeaveform(){
-//     leaveSenior.value = null
-//     leaveReason.value = null
-//     endLeave.value = null
-//     startLeave.value = null
-//     leaveType.value = null
-// }
-
-
-
-
 //excuse
 
 var form = document.getElementById('excuseType')
@@ -147,36 +108,4 @@ function displayRequests(){
 
     document.getElementById('myExcuse').innerHTML=cartona
 }
-
-
-
-
-
-// function displayRequests() {
-//     // Check if the element with id 'myExcuse' exists
-//     const myExcuseTable = document.getElementById('myExcuse');
-//     if (!myExcuseTable) {
-//         console.error("Element with id 'myExcuse' not found.");
-//         return;  // Exit function if element is not found
-//     }
-
-//     // Assuming 'excuseRequests' is a global variable that is already defined
-//     let cartona = '';
-//     for (let i = 0; i < excuseRequests.length; i++) {
-//         cartona += `
-//             <tr>
-//                 <td class="text-center">Excuse</td>
-//                 <td class="text-center">3/12/2016</td>
-//                 <td class="text-center">30 mins</td>
-//                 <td class="text-center"><div class="alert alert-warning m-0 p-0" role="alert">Pending</div></td>
-//             </tr>
-//         `;
-//     }
-
-//     // Set the innerHTML after loop completes
-//     myExcuseTable.innerHTML = cartona;
-// }
-
-
-
 

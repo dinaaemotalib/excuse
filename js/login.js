@@ -78,6 +78,8 @@ if (!localStorage.getItem("employees")) {
     console.log("Employee data has been added to local storage.");
 }
 
-// Initialize validate function
-window.onload = validate;
+
+
+// // Initialize validate function
+// window.onload = validate;
 

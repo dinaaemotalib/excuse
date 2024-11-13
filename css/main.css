@@ -836,8 +836,8 @@ body{
 .context-menu {
     position: absolute;
     z-index: 1000;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    background-color: #974d4d;
+    border: 1px solid #964343;
     border-radius: 4px;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
     padding: 5px;
@@ -867,7 +867,7 @@ body{
 }
 
 .context-menu ul>li:hover {
-    color: #fff;
+    color: #994242;
     background-color: #007bff;
     border-radius: 2px;
 
@@ -1182,6 +1182,92 @@ body{
 }
 
 
+.profilebg{
+    background-color: var(--light-gray) !important;
+}
+
+#profile .icon-box.medium {
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+}
+#profile .icon-box {
+    font-size: 30px;
+    margin-bottom: 33px;
+    display: inline-block;
+    color: #ffffff;
+    height: 65px;
+    width: 65px;
+    line-height: 65px;
+    background-color: var(--blue-color);
+    text-align: center;
+    border-radius: 0.3rem;
+}
+#profile .social-icon-style2 li a {
+    display: inline-block;
+    font-size: 14px;
+    text-align: center;
+    color: #ffffff;
+    background: var(--blue-color);
+    height: 41px;
+    line-height: 41px;
+    width: 41px;
+}
+/* #profile .rounded-3 {
+    border-radius: 0.3rem !important;
+} */
+
+#profile .social-icon-style2 {
+    margin-bottom: 0;
+    display: inline-block;
+    padding-left: 10px;
+    list-style: none;
+}
+
+#profile .social-icon-style2 li {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+#profile a, a:active, a:focus {
+    color: #616161;
+    text-decoration: none;
+    transition-timing-function: ease-in-out;
+    -ms-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    transition-duration: .2s;
+    -ms-transition-duration: .2s;
+    -moz-transition-duration: .2s;
+    -webkit-transition-duration: .2s;
+    -o-transition-duration: .2s;
+}
+
+/* #profile .text-secondary, .text-secondary-hover:hover {
+    color: #59b73f !important;
+} */
+/* #profile .display-25 {
+    font-size: 1.4rem;
+} */
+
+/* #profile .text-primary, .text-primary-hover:hover {
+    color: #ff712a !important;
+} */
+
+/* #profile p {
+    margin: 0 0 20px;
+} */
+
+/* #profile .mb-1-6, .my-1-6 {
+    margin-bottom: 1.6rem;
+} */
+
+#profile .profilecard{
+    background-color: white !important;
+}
 
 
 

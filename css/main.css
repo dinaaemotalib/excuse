@@ -752,8 +752,8 @@ body{
 }
 
 .welcome-image {
-    width: 15%; /* Set a fixed width for images */
-    max-width: 100px; /* Ensure images do not exceed this size */
+    width: 100%; /* Set a fixed width for images */
+    max-width: 150px; /* Ensure images do not exceed this size */
 }
 
 
@@ -938,8 +938,8 @@ body{
 }
 
 #homecards .column{
-  margin-top:3rem;
-  padding-left:3rem;
+  margin-top:2rem;
+  padding-left:2rem;
 }
 #homecards .column:hover{
     padding-left:0;
@@ -964,33 +964,33 @@ body{
   
 
 #homecards.card{
-  min-height:170px;
+  min-height:120px;
   margin: 0;
-  padding: 1.7rem 1.2rem;
+  padding: 1rem;
   border: none;
   border-radius: 0;
   color:rgba(0,0,0,1);
   letter-spacing: .05rem;
   font-family: 'Oswald', sans-serif;
-  box-shadow: 0 0 21px rgba(0,0,0,.27);
+  box-shadow: 0 0 15px rgba(0,0,0,.2);
 }
 
   #homecards .txt{
-    margin-left:-3rem;
+    margin-left:-1rem;
     z-index: 1;
 }
 
     #homecards h1{
-      font-size:1.5rem;
+      font-size:1.2rem;
       font-weight: 300;
       text-transform: uppercase;
     }
 
     #homecards p{
-      font-size:.7rem;
+      font-size:.6rem;
       font-family: 'Open Sans', sans-serif;
       letter-spacing: 0rem;
-      margin-top:33px;
+      margin-top:20px;
       opacity:0;
       color:rgba(255,255,255,1);
     }
@@ -1030,7 +1030,7 @@ body{
     position: relative;
     right: -50%;
     top:60%;
-    font-size: 12rem;
+    font-size: 8rem;
     line-height: 0;
     opacity: .2;
     color:rgba(255,255,255,1);
@@ -2234,32 +2234,57 @@ footer i{
 
 
 /*home page*/
-     .hello-sector {
-        flex-direction: column; /* Stack items vertically on smaller screens */
-        align-items: center; /* Center align items */
-        margin-top:50px;
-        padding-top: 10px;
-    }
+.hello-sector {
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 50px;
+    padding-top: 10px;
+    gap: 20px; /* Space between stacked items */
+}
 
-    .hello-left, .hello-right {
-        width: 100%; /* Take full width on smaller screens */
-        text-align: center; /* Center text */
-        /*flex-direction: column;*/ /* Stack items vertically on smaller screens */
-        align-items: center; /* Center align items */
-    }
+.hello-left, .hello-right {
+    width: 100%; 
+    text-align: center;
+}
 
-    .hello-right img {
-        max-width: 100px; /* Adjust image size for smaller screens */
-    }
+.hello-right {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: row; /* Arrange items in a row */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center the entire group */
+    gap: 2px; /* Space between images and text */
+}
 
-    .welcome-image {
-        max-width: 80px; /* Adjust image size for smaller screens */
-    }
+.hello-right img {
+    max-width: 100px; /* Set responsive image size */
+    width: auto;
+}
 
-    .welcome-text {
-        font-size: large; /* Adjust font size on smaller screens */
-        margin-top: 20px;
-    }
+.welcome-text {
+    font-size: large; /* Adjust font size for smaller screens */
+    font-weight: bold;
+}
+
+.welcome-image {
+    max-width: 80px; /* Ensure consistent sizing */
+}
+
+#navbar .notification-badge {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+    border: 2px solid #fff; /* Add a border for better visibility */
+}
+
+#navbar .d-flex .fa-bell,
+#navbar .d-flex .fa-user {
+    font-size: 1.8rem; /* Adjust size for smaller screens */
+    margin-left: 10px; /* Add space between icons */
+}
+
+#navbar .d-flex {
+    gap: 15px; /* Uniform spacing between notification and profile icons */
+}
+
 
     /* .hello-text{
         padding-top: 50px;
@@ -2308,6 +2333,15 @@ footer i{
         z-index: 10; /* Ensure it's above the image */
         color: white;
         background: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background for better visibility */
+    }
+
+    .welcome-text {
+        font-size: medium;
+    }
+
+    .hello-sector {
+        margin-top: 30px;
+        padding-top: 5px;
     }
    
     

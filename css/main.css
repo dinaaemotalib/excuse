@@ -780,11 +780,20 @@ body{
 }
 
 /*calender*/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 #calendar {
-    max-width: 800px;
-}
+    
+        max-width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative !important;
+        overflow: visible !important;
+    }
+    
+
+
 
 .context-menu {
     position: absolute;
@@ -838,11 +847,69 @@ body{
 
  }
 
+/* Sticky calendar header */
+/* .fc-header-toolbar {
+    position: sticky;
+    top: 60px;
+    z-index: 2;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+} */
 
 
+.fc-daygrid-day-number {
+    color: var(--blue-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.fc-toolbar-title{
+    color: var(--blue-color);
+    font-weight: 600;
+
+}
+
+.fc-day-sat, .fc-day-fri {
+    background-color: rgba(128, 128, 128, 0.144);
+}
+
+.fc-day-today {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.fc .fc-col-header-cell {
+    /* background-color: var(--dark-gray);  */
+    color: #fff !important; 
+    font-weight: bold; 
+    text-align: center; 
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    text-decoration: none !important;
+    z-index: 0 !important;
+}
 
 .fc-scroller {
-    overflow-y: hidden !important;
+    position: relative !important; /* Ensure it's not sticky */
+    overflow: auto !important; /* Enable scrolling if necessary */
+    max-height: none; /* Allow the content to grow without restriction */
+    z-index: 0;
+}
+
+.fc-daygrid-body {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+
+.fc-scroller,
+.fc-daygrid-body,
+.fc-daygrid {
+    position: relative !important;
+    overflow: visible !important;
+    max-height: none !important;
+    height: auto !important;
 }
 
 .context-menu {
@@ -2338,29 +2405,29 @@ footer i{
         padding: 0;
     }
 
-    /* Adjust spacing and layout for small screens */
-
     .last-update {
-        margin-bottom: 20px; /* Add spacing below the last update section */
+        margin-bottom: 20px;
     }
 
     #calendar {
-        margin-top: 10px; /* Ensure space between the last update and calendar */
+        margin-top: 10px;
     }
 
-    .last-update .card {
-        padding: 10px; /* Reduce padding for smaller screens */
+    .fc-toolbar {
+        flex-wrap: wrap; /* Stack toolbar buttons on smaller screens */
+        text-align: center;
     }
 
-    .last-update .card-header {
-        font-size: 1.2rem; /* Adjust header size */
+    .fc-toolbar-title {
+        font-size: 1.2rem; /* Reduce title font size */
     }
 
-    .last-update-body .card-text {
-        font-size: 0.9rem; /* Adjust text size for better readability */
+    .fc-button {
+        font-size: 0.9rem; /* Smaller buttons */
+        padding: 5px 8px; /* Adjust button padding */
     }
-
     
+
 }
 
 

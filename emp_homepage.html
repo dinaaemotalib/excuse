@@ -1,35 +1,42 @@
-<!--DINA-->
+
 
 <!doctype html>
 <html lang="en">
 
 <head>
- 
-    <!--links-->
-        <!--font links-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-        <!--  library specifically for creating carousels and sliders -->
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link href='https://unpkg.com/@fullcalendar/core/main.css' rel='stylesheet' />
-    <link href='https://unpkg.com/@fullcalendar/daygrid/main.css' rel='stylesheet' />
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+  <meta name="description" content="AIEcon excels in diverse engineering fields...">
+  <meta name="keywords" content="Dam Design, Geological Engineering, Hydraulic Engineering...">
 
-      <!--meta-->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-      <meta name="description" content="AIEcon excels in diverse engineering fields, specializing in dam design with a focus on geological, hydraulic, and structural safety. Their global marine engineering services include breakwaters, berthing structures, mooring accessories, shore protection, jetties, and hydrodynamic modeling. AIEcon also provides utility design and management for water, firefighting, stormwater, sewage, irrigation, dry utilities, and roadworks, including earthworks and airport design. Their expertise extends to groundwater studies, offering hydrogeological analysis, well design, and solutions for rising groundwater issues. Utilizing BIM for collaborative design and construction, AIEcon also integrates GIS systems for effective spatial data management and analysis.">
-      <meta name="keywords" content="Dam Design, Geological Engineering, Hydraulic Engineering, Structural Safety, Marine Engineering, Breakwaters, Berthing Structures, Mooring Accessories, Shore Protection, Jetties, Hydrodynamic Modeling, Coastal Engineering, Utility Design, Water Systems, Firefighting Systems, Stormwater Management, Sewage Systems, Irrigation Systems, Dry Utilities, Roadworks, Earthworks, Airport Design, Groundwater Studies, Hydrogeological Analysis, Well Design, Groundwater Management, Rising Groundwater Solutions, BIM, Building Information Modeling, GIS, Geographic Information Systems, Spatial Data Analysis">
+  <!-- Title and Icon -->
+  <title>Home | AIECon Consultant L.L.C</title>
+  <link rel="shortcut icon" type="image/jpg" href="images/favicon_nknr4a.ico">
 
-      <!--title and its icon-->
-      <title>Home | AIECon Consultant L.L.C</title>
-      <link rel="shortcut icon" type="image/jpg" href="images/favicon_nknr4a.ico">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
+  <!-- FullCalendar CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="css/all.min.css">
+
+  <!-- Carousel/Slider Library -->
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
 
 </head>
+
 
 
 <body>
@@ -252,72 +259,86 @@
     </div>
   </div>
         </div>
-
-          <!-- calender-->
+      
+        
+      
+   <!-- calender-->
         <!-- <div class="col-sm-4 ms-3"> -->
-      
-          <div id='calendar'></div>
+<!-- Calendar Section -->
+<div class="container ">
+  <!-- Add Event Button -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+      <!-- <h3 class="text-primary">Event Calendar</h3> -->
 
-          
-      
-          <div class="modal fade edit-form" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog" role="document">
-                  <div class="modal-content">
-                      <div class="modal-header border-bottom-0">
-                          <h5 class="modal-title" id="modal-title">Add Event</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+
+  <!-- Calendar -->
+  <div id="calendar" class="ms-3 mb-5 border rounded p-3 bg-light shadow"></div>
+
+  <!-- Add Event Modal -->
+  <div class="modal fade edit-form" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="modal-title">Add Event</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <form id="myForm">
+                  <div class="modal-body">
+                      <div class="alert alert-danger d-none" id="danger-alert">End date should be greater than start date.</div>
+                      <div class="form-group mb-3">
+                          <label for="event-title" class="form-label">Event Name <span class="text-danger">*</span></label>
+                          <input type="text" class="form-control" id="event-title" placeholder="Enter event name" required>
                       </div>
-                      <form id="myForm">
-                          <div class="modal-body">
-                              <div class="alert alert-danger " role="alert" id="danger-alert" style="display: none;">
-                                  End date should be greater than start date.
-                                </div>
-                              <div class="form-group">
-                                  <label for="event-title">Event name <span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control" id="event-title" placeholder="Enter event name" required>
-                              </div>
-                              <div class="form-group">
-                                  <label for="start-date">Start date <span class="text-danger">*</span></label>
-                                  <input type="date" class="form-control" id="start-date" placeholder="start-date" required>
-                              </div>
-                              <div class="form-group">
-                                  <label for="end-date">End date - <small class="text-muted">Optional</small></label>
-                                  <input type="date" class="form-control" id="end-date" placeholder="end-date">
-                              </div>
-                              <div class="form-group">
-                                  <label for="event-color">Color</label>
-                                  <input type="color" class="form-control" id="event-color" value="#3788d8">
-                                </div>
-                          </div>
-                          <div class="modal-footer border-top-0 d-flex justify-content-center">
-                              <button type="submit" class="btn btn-success" id="submit-button">Submit</button>
-                            </div>
-                      </form>
+                      <div class="form-group mb-3">
+                          <label for="start-date" class="form-label">Start Date <span class="text-danger">*</span></label>
+                          <input type="date" class="form-control" id="start-date" required>
+                      </div>
+                      <div class="form-group mb-3">
+                          <label for="end-date" class="form-label">End Date</label>
+                          <input type="date" class="form-control" id="end-date">
+                      </div>
+                      <div class="form-group mb-3">
+                          <label for="event-color" class="form-label">Event Color</label>
+                          <input type="color" class="form-control" id="event-color" value="#3788d8">
+                      </div>
                   </div>
+                  <div class="modal-footer">
+                      <button type="submit" class="btn btn-success w-100" id="submit-button">Submit</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="delete-modal-title" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="delete-modal-title">Confirm Deletion</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center">
+                  Are you sure you want to delete <b id="delete-event-name"></b>?
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" id="cancel-button" data-bs-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-danger" id="delete-button">Delete</button>
               </div>
           </div>
-      
-          
-          <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="delete-modal-title" aria-hidden="true">
-              <div class="modal-dialog modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="delete-modal-title">Confirm Deletion</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body text-center" id="delete-modal-body">
-                    Are you sure you want to delete the event?
-                  </div>
-                  <div class="modal-footer border-0">
-                      <button type="button" class="btn btn-secondary rounded-sm" data-dismiss="modal" id="cancel-button">Cancel</button>
-                    <button type="button" class="btn btn-danger rounded-lg" id="delete-button">Delete</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
+      </div>
+  </div>
+</div>
+
+</div>
+</div>
          
         </div>
+     <!-- </div> -->
+
+     <!--endddddddd last updates and calender-->
+          
      <!-- </div> -->
 
      <!--endddddddd last updates and calender-->
@@ -614,59 +635,48 @@
     
 
         </script>
-
-
-<!-- <script>
-$(document).ready(function() {
-  $('#myForm').on('submit', function(e) {
-      e.preventDefault();
-      // Add your event handling logic here
-      $('#form').modal('hide'); // Hide the modal after submission
-  });
-
-  $('#delete-button').on('click', function() {
-      // Add your deletion logic here
-      $('#delete-modal').modal('hide'); // Hide the modal after deletion
-  });
+<!-- 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const calendarEl = document.getElementById('calendar');
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,dayGridWeek,dayGridDay'
+        },
+        initialView: 'dayGridMonth',
+        selectable: true,
+        editable: true
+    });
+    calendar.render();
 });
-    
-    
+
 </script> -->
 
 
-    <!--script-->
-    
-    
-    <!--script links-->
-    
-    
-    
-    
-    <script src="js/empHome.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
-            </script>
+<!-- FullCalendar -->
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
 
-        <script src="js/excusereq.js"></script>
-        <script src="js/leavereq.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.2.0/main.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.2.0/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.2.0/main.min.js"></script> -->
-    
-    
-    <!--script links-->  
+<!-- Flickity -->
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script src="https://unpkg.com/mdb-ui-kit@6.0.0/mdb.min.js"></script>
+
+
+
+<!-- Custom Scripts -->
+<script src="js/empHome.js"></script>
+<script src="js/excusereq.js"></script>
+<script src="js/leavereq.js"></script>
+<!-- <script src="dist/bundle.js"></script> -->
+
+  
     
     
     </body>

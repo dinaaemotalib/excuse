@@ -272,6 +272,14 @@
   
 //   });
 
+
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const calendarEl = document.getElementById('calendar');
     const myModal = new bootstrap.Modal(document.getElementById('form'));
@@ -315,6 +323,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     calendar.render();
+    
 
     // Save events to localStorage
     const saveEvents = () => {

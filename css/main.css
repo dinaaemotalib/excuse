@@ -2180,7 +2180,8 @@ footer i{
     .navbar-custom {
         background-color: var(--blue-color);
         width: 100%; /* Ensure nav spans the full width */
-        padding: 0; /* Remove extra padding */
+        padding: 10px; /* Remove extra padding */
+        
     }
 
     .nav {
@@ -2190,6 +2191,7 @@ footer i{
 
     .navbar-collapse {
         width: 100%; /* Ensure the collapsible part spans the full width */
+    
     }
 
     .nav-link {

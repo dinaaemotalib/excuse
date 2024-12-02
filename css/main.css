@@ -2428,6 +2428,11 @@ footer i{
         font-size: 0.9rem; /* Smaller buttons */
         padding: 5px 8px; /* Adjust button padding */
     }
+
+
+    #request{
+        margin: 45px 0;
+    }
     
 
 }
@@ -2478,6 +2483,17 @@ footer i{
         margin-top: 30px;
         padding-top: 5px;
     }
+
+    .row {
+        display: flex;
+        align-items: stretch; /* Ensures both columns stretch to the same height */
+      }
+    
+      .last-update {
+        display: flex;
+        flex-direction: column; /* Ensures content inside stacks vertically */
+        justify-content: space-between; /* Adjusts spacing inside the card */
+      }
    
     
 }

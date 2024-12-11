@@ -28,16 +28,16 @@ document.addEventListener("DOMContentLoaded", function () {
         switch (user.role) {
           case "Co-Founder":
           case "Admin":
-            window.location.href = "admin_homePage.html"; // Redirect to admin page
+            window.location.href = "admin.html"; // Redirect to admin page
             break;
           case "HR":
-            window.location.href = "hr_homePage.html"; // Redirect to HR page
+            window.location.href = "hr_homepage.html"; // Redirect to HR page
             break;
           case "Senior":
-            window.location.href = "emp_homePage.html"; // Redirect to Senior employee page
+            window.location.href = "emp_homepage.html"; // Redirect to Senior employee page
             break;
           case "Employee":
-            window.location.href = "emp_homePage.html"; // Redirect to employee page
+            window.location.href = "emp_homepage.html"; // Redirect to employee page
             break;
           default:
             throw new Error("Unknown user role");

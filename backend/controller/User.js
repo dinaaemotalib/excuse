@@ -26,3 +26,31 @@ export const getUserByEmail = async (email) => {
     throw new Error("Failed to get user");
   }
 };
+
+// TODO: This Routw should get restrricted in Subapase cia RLS to only allow showing Names
+export const getAllUsers = async () => {
+  try {
+    const response = await fetch(`${SUPABASE_URl}/rest/v1/users?select=name,role,user_code`, {
+      headers: {
+        apikey: SUPABASE_KEY,
+        Authorization: `Bearer ${SUPABASE_KEY}`,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const users = await response.json();
+
+    if (users.length === 0) {
+      throw new Error("User not found");
+    }
+
+    const user = users;
+    return user;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Failed to get user");
+  }
+};

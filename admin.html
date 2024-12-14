@@ -1,552 +1,456 @@
 <!--DINA-->
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
- 
+  <head>
     <!--links-->
-        <!--font links-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-        <!--  library specifically for creating carousels and sliders -->
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link href='https://unpkg.com/@fullcalendar/core/main.css' rel='stylesheet' />
-    <link href='https://unpkg.com/@fullcalendar/daygrid/main.css' rel='stylesheet' />
+    <!--font links-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!--  library specifically for creating carousels and sliders -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link href="https://unpkg.com/@fullcalendar/core/main.css" rel="stylesheet" />
+    <link href="https://unpkg.com/@fullcalendar/daygrid/main.css" rel="stylesheet" />
 
-      <!--meta-->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-      <meta name="description" content="AIEcon excels in diverse engineering fields, specializing in dam design with a focus on geological, hydraulic, and structural safety. Their global marine engineering services include breakwaters, berthing structures, mooring accessories, shore protection, jetties, and hydrodynamic modeling. AIEcon also provides utility design and management for water, firefighting, stormwater, sewage, irrigation, dry utilities, and roadworks, including earthworks and airport design. Their expertise extends to groundwater studies, offering hydrogeological analysis, well design, and solutions for rising groundwater issues. Utilizing BIM for collaborative design and construction, AIEcon also integrates GIS systems for effective spatial data management and analysis.">
-      <meta name="keywords" content="Dam Design, Geological Engineering, Hydraulic Engineering, Structural Safety, Marine Engineering, Breakwaters, Berthing Structures, Mooring Accessories, Shore Protection, Jetties, Hydrodynamic Modeling, Coastal Engineering, Utility Design, Water Systems, Firefighting Systems, Stormwater Management, Sewage Systems, Irrigation Systems, Dry Utilities, Roadworks, Earthworks, Airport Design, Groundwater Studies, Hydrogeological Analysis, Well Design, Groundwater Management, Rising Groundwater Solutions, BIM, Building Information Modeling, GIS, Geographic Information Systems, Spatial Data Analysis">
+    <!--meta-->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
+    <meta
+      name="description"
+      content="AIEcon excels in diverse engineering fields, specializing in dam design with a focus on geological, hydraulic, and structural safety. Their global marine engineering services include breakwaters, berthing structures, mooring accessories, shore protection, jetties, and hydrodynamic modeling. AIEcon also provides utility design and management for water, firefighting, stormwater, sewage, irrigation, dry utilities, and roadworks, including earthworks and airport design. Their expertise extends to groundwater studies, offering hydrogeological analysis, well design, and solutions for rising groundwater issues. Utilizing BIM for collaborative design and construction, AIEcon also integrates GIS systems for effective spatial data management and analysis."
+    />
+    <meta
+      name="keywords"
+      content="Dam Design, Geological Engineering, Hydraulic Engineering, Structural Safety, Marine Engineering, Breakwaters, Berthing Structures, Mooring Accessories, Shore Protection, Jetties, Hydrodynamic Modeling, Coastal Engineering, Utility Design, Water Systems, Firefighting Systems, Stormwater Management, Sewage Systems, Irrigation Systems, Dry Utilities, Roadworks, Earthworks, Airport Design, Groundwater Studies, Hydrogeological Analysis, Well Design, Groundwater Management, Rising Groundwater Solutions, BIM, Building Information Modeling, GIS, Geographic Information Systems, Spatial Data Analysis"
+    />
 
-      <!--title and its icon-->
-      <title>Home | AIECon Consultant L.L.C</title>
-      <link rel="shortcut icon" type="image/jpg" href="images/favicon_nknr4a.ico">
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!--title and its icon-->
+    <title>Home | AIECon Consultant L.L.C</title>
+    <link rel="shortcut icon" type="image/jpg" href="images/favicon_nknr4a.ico" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
 
-
-</head>
-
-
-<body>
-
+  <body>
     <!--navbar-custom used for customization-->
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-custom z-1" style="background-color: #3b5998;">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-custom z-1" style="background-color: #3b5998">
+      <!--container-fluid  ->  width=100%  so i removed it cause i need to have spaces-->
+      <div class="container container-fluid">
+        <!--logo place-->
+        <a
+          aria-controls="offcanvasWithBothOptions"
+          data-bs-target="#offcanvasWithBothOptions"
+          data-bs-toggle="offcanvas"
+          class="navbar-brand"
+          href="#carouselExampleAutoplaying"
+          ><img
+            src="images/X_AIEcon_Company_No_Boarder _Logo_White-01.png"
+            alt="AIEcon's white logo"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            data-bs-title="Press for side bar"
+        /></a>
 
-        <!--container-fluid  ->  width=100%  so i removed it cause i need to have spaces-->
-        <div class="container container-fluid">
-            <!--logo place-->
-          <a aria-controls="offcanvasWithBothOptions" data-bs-target="#offcanvasWithBothOptions" data-bs-toggle="offcanvas" class="navbar-brand" href="#carouselExampleAutoplaying"><img src="images/X_AIEcon_Company_No_Boarder _Logo_White-01.png" alt="AIEcon's white logo" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Press for side bar"></a> 
+        <!--in small screens the button that toggles to show the nav bar component-->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <!--in small screens the button that toggles to show the nav bar component-->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!--nav bar components-->
+          <!--me-auto=> margin end auto make all space at the end so i make it ms for the below list -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-lg-5">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Home</a>
+            </li>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                target="_blank"
+                aria-current="page"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdjjElQ67_PRaav79-kk8rK9P1FxPZr0XjM7-_31W8awu7NYQ/viewform?usp=sf_link"
+                >Time Sheet</a
+              >
+            </li>
 
-            <!--nav bar components-->
-            <!--me-auto=> margin end auto make all space at the end so i make it ms for the below list -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-lg-5">
+            <li class="nav-item">
+              <a class="nav-link" href="excuserequests.html">Excuses Report</a>
+            </li>
 
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#">Home</a>
-                  </li>
+            <li class="nav-item">
+              <a class="nav-link" href="leaverequests.html">Leaves Report</a>
+            </li>
 
-              <li class="nav-item">
-                <a class="nav-link" target="_blank" aria-current="page" href="https://docs.google.com/forms/d/e/1FAIpQLSdjjElQ67_PRaav79-kk8rK9P1FxPZr0XjM7-_31W8awu7NYQ/viewform?usp=sf_link">Time Sheet</a>
-              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">My Progress</a>
+            </li>
+          </ul>
 
-              <li class="nav-item">
-                <a class="nav-link" href="excuserequests.html">Excuses Report</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="leaverequests.html">Leaves Report</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="#">My Progress</a>
-              </li>
-
-            </ul>
-
-
-            <div href="#" data-bs-toggle="modal" data-bs-target="#notificationModal">
+          <div href="#" data-bs-toggle="modal" data-bs-target="#notificationModal">
             <i class="fas fa-bell text-white fa-l mx-4 position-relative fs-5">
-                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-                    <span class="visually-hidden">New alerts</span>
-                </span>
+              <span
+                class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"
+                id="notification-red-ball"
+              >
+                <span class="visually-hidden">New alerts</span>
+              </span>
             </i>
           </div>
-        
-            <!-- <a href=""><i class="fas fa-bell text-white fa-l mx-4 position-relative fs-5"> <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-              <span class="visually-hidden">New alerts</span>
-            </span></i></a> -->
 
-          <!-- <span class="badge rounded-pill badge-notification bg-danger">1</span> -->
-           <!-- <div class="rounded-circle ">
-            <a class="navbar-brand " href="#"><img class="rounded-circle"  src="images/hala.jpg" alt="AIEcon's white logo"></a> 
-           </div> -->
-          <a href="profile.html"><i class="fa-solid text-white fa-user fs-5"></i></a> 
-          
+          <a href="profile.html"><i class="fa-solid text-white fa-user fs-5"></i></a>
 
-            <!-- <a href="loginform.html">
+          <!-- <a href="loginform.html">
               <button id="loginbtn" class="btn btn-outline-success btn-color" type="button" style="background-color: white; color: #3b5998;">login</button>
             </a> -->
-          
-            
-          </div>
-          <!--end of navbar components-->
         </div>
-</nav>
-<!--nav bar ENDDDDDDD-->
-
-
-<!-- Notification Modal -->
-<div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="notificationModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="notificationModalLabel">Notifications</h5>
-              <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
-                  <!-- <span aria-hidden="true">&times;</span> -->
-              </button>
-          </div>
-          <div class="modal-body " id="notification">
-              <div class="notification-ui_dd-content">
-                  <div class="notification-list notification-list--unread">
-                    <!--here-->
-                      <div class=" notification-list_content">
-                          <div class="notification-list_img">
-                              <img src="images/profile.png" alt="user">
-                          </div>
-                          <div class="notification-list_detail text-dark">
-                              <p class="text-dark"><b>Dina Abd El Motalib</b> requests to leave from 5:30 to 6:30</p>
-                              <p class="text-muted"><small>10 mins ago</small></p>
-                             <a href="emp_homepage.html"> <button type="submit" class="btn btn-success">Accept</button></a>
-                             <a href="emp_homepage.html"> <button type="submit" class="btn btn-danger">Reject</button></a>
-                          </div>
-                      </div>
-  
-                  </div>
-                  
-                  <!-- Additional notifications here -->
-              </div>
-              <div class="text-center">
-                  <a href="#!" class="dark-link">Load more activity</a>
-              </div>
-          </div>
+        <!--end of navbar components-->
       </div>
-  </div>
-</div>
+    </nav>
+    <!--nav bar ENDDDDDDD-->
 
+    <!-- Notification Modal -->
+    <div
+      class="modal fade"
+      id="notificationModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="notificationModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="notificationModalLabel">Notifications</h5>
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+            <!-- <span aria-hidden="true">&times;</span> -->
+          </div>
+          <div class="modal-body" id="notification">
+            <div class="notification-ui_dd-content">
+              <div class="notification-list" id="notification-content"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!--home page-->
     <section id="emphome">
-
-    <!--sidebar-->
-    <div class="offcanvas offcanvas-start z-3" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-      
+      <!--sidebar-->
+      <div
+        class="offcanvas offcanvas-start z-3"
+        data-bs-scroll="true"
+        tabindex="-1"
+        id="offcanvasWithBothOptions"
+        aria-labelledby="offcanvasWithBothOptionsLabel"
+      >
         <!--sidebar header-->
         <div class="offcanvas-header">
-        <!-- <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">dinaaaaaaa</h5> -->
-        <img src="images/favicon_nknr4a.ico" alt="" >
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <!-- <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">dinaaaaaaa</h5> -->
+          <img src="images/favicon_nknr4a.ico" alt="" />
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <!--end sidebar header-->
 
         <!--sidebar body-->
-        <div class="offcanvas-body d-flex mx-2" >
-        <div class="col ">
-           
-            <a class="text-decoration-none " href="#"><p class="text-black"> <i class="fa-solid fa-house text-black mx-2"></i>Home</p></a>
-    
-            <a class="text-decoration-none " href="#"><p class="text-black"><i class="fa-solid fa-sheet-plastic text-black mx-2"></i>Time sheet</p></a>
+        <div class="offcanvas-body d-flex mx-2">
+          <div class="col">
+            <a class="text-decoration-none" href="index.html"
+              ><p class="text-black"><i class="fa-solid fa-house text-black mx-2"></i>Home</p></a
+            >
 
-            <a class="text-decoration-none " href="#"><p class="text-black"><i class="fa-solid fa-clock mx-2 text-black"></i>Apply for excuse</p></a>
-    
-            <a class="text-decoration-none " href="#"><p class="text-black"><i class="fa-solid fa-person-walking-arrow-right text-black mx-2"></i>Apply for leave</p></a>
-                
-            <a class="text-decoration-none " href="#"><p class="text-black"><i class="fa-solid fa-money-bill text-black mx-2"></i>Salary</p></a>
-                
-            <a class="text-decoration-none " href="#"><p class="text-black"><i class="fa-solid fa-clipboard-user mx-2 text-black"></i>Attendance</p></a>
-                
-            <a class="text-decoration-none " href="#"><p class="text-black"><i class="fa-solid fa-gifts text-black mx-2"></i>Holiday</p></a>
-                
-            <a class="text-decoration-none " href="#"><p class="text-black"><i class="fa-regular fa-calendar-days text-black mx-2"></i>Calendar</p></a>
-                
-            <a class="text-decoration-none " href="#"><p class="text-black"><i class="fa-solid fa-bars-progress text-black mx-2"></i>My Progress</p></a>
+            <a class="text-decoration-none" href="#"
+              ><p class="text-black"><i class="fa-solid fa-sheet-plastic text-black mx-2"></i>Time sheet</p></a
+            >
+
+            <a class="text-decoration-none" href="#"
+              ><p class="text-black"><i class="fa-solid fa-money-bill text-black mx-2"></i>Salary</p></a
+            >
+
+            <a class="text-decoration-none" href="#"
+              ><p class="text-black"><i class="fa-solid fa-clipboard-user mx-2 text-black"></i>Attendance</p></a
+            >
+
+            <a class="text-decoration-none" href="#"
+              ><p class="text-black"><i class="fa-solid fa-gifts text-black mx-2"></i>Holiday</p></a
+            >
+
+            <a class="text-decoration-none" href="#"
+              ><p class="text-black"><i class="fa-regular fa-calendar-days text-black mx-2"></i>Calendar</p></a
+            >
+
+            <a class="text-decoration-none" href="#"
+              ><p class="text-black"><i class="fa-solid fa-bars-progress text-black mx-2"></i>My Progress</p></a
+            >
 
             <!-- <div class="border border-1 border-gray bg-danger mb-2">
 
-            <a class="text-decoration-none" href="#"><p class="text-black text-center pt-3"><i class="fa-solid fa-arrow-right-from-bracket mx-2 text-black "></i>Logout</p></a>
-        </div>  -->
+              <a class="text-decoration-none" href="#"><p class="text-black text-center pt-3"><i class="fa-solid fa-arrow-right-from-bracket mx-2 text-black "></i>Logout</p></a>
+          </div>  -->
 
-        <button class="btn btn-outline-danger text-center container-fluid my-3">Logout<i class="fa-solid fa-arrow-right-from-bracket mx-2"></i></button>
-          
-                <!-- <a class="text-decoration-none" href="#"><p class="text-black text-center pt-3">Collapse<i class="fa-solid fa-angles-left text-black mx-2 "></i></p></a> -->
-                <button class="btn btn-outline-info text-center container-fluid">collapse<i class="fa-solid fa-angles-left mx-2 "></i></button>
+            <button class="btn btn-outline-danger text-center container-fluid my-3" id="logout-btn">
+              Logout<i class="fa-solid fa-arrow-right-from-bracket mx-2"></i>
+            </button>
 
-            
-
-
-        </div>
+            <button class="btn btn-outline-info text-center container-fluid" data-bs-dismiss="offcanvas">
+              collapse<i class="fa-solid fa-angles-left mx-2"></i>
+            </button>
+          </div>
         </div>
         <!--end sidebar body-->
+      </div>
+      <!--end sidebar-->
 
-    </div>
-    <!--end sidebar-->
+      <!--hello-->
 
-    <!--hello-->
-
-    <div class="hello-sector rounded-3 px-5 d-flex justify-content-between flex-wrap">
+      <div class="hello-sector rounded-3 px-5 d-flex justify-content-between flex-wrap">
         <div class="hello-left d-flex flex-column justify-content-center">
-            
-            <h2 class="mb-3 fw-bolder fs-2 hello-text">Hello Dr. Ahmed  <img src="images/homewave.png" alt=""></h2>
-            
-            <span>You Can Do It!</span>
+          <h2 class="mb-3 fw-bolder fs-2 hello-text">
+            <span id="emp-name"></span>
+            <img src="images/homewave.png" alt="Wave Icon" />
+          </h2>
+          <span id="emp-role"></span>
         </div>
 
         <div class="hello-right d-flex align-items-center">
-            <!-- <img src="images/welcomehome.png" alt=""> -->
-            <img src="images/welcomehome2.png" alt="" class="welcome-image">
-            <h2 class="mb-3 fw-bolder fs-2 welcome-text  fa-2x">WELCOME</h2>
-            <img src="images/welcomehome.png" alt="" class="welcome-image">          
+          <!-- <img src="images/welcomehome.png" alt=""> -->
+          <img src="images/welcomehome2.png" alt="" class="welcome-image" />
+          <h2 class="mb-3 fw-bolder fs-2 welcome-text fa-2x">WELCOME</h2>
+          <img src="images/welcomehome.png" alt="" class="welcome-image" />
         </div>
-    </div>
-
-     <!--end hello-->
-
-
-
-     <!--last updates and calender-->
-
-     <div class="last-update">
-        <div class="first d-flex">
-             <div class="row">
-
-   <div class="col-12 me-3">
-    <div class="card text-bg-secondary mx-1 container-fluid last-update">
-      <div class="card-header fa-2x fw-medium">Latest Update</div>
-      <div class="card-body last-update-body">
-        <!-- <h5 class="card-title">Secondary card title</h5> -->
-        <p class="card-text text-white fw-lighter">Sara applied for <span class="fw-bolder">leave</span> for <span class="fw-bolder">18th March</span> to <span class="fw-bolder">22 March</span>.</p>
       </div>
-      <div class="card-header fa-2x fw-medium"></div>
-      <div class="card-body last-update-body">
-        <!-- <h5 class="card-title">Secondary card title</h5> -->
-        <p class="card-text text-white fw-lighter">Remember that <span class="fw-bolder">project x</span> left for its due date<span class="fw-bolder"> 4 days</span> to <span class="fw-bolder">22 March</span>.</p>
-      </div>
-      
-    </div>
-  </div>
-        </div>
 
-          <!-- calender-->
-        <!-- <div class="col-sm-4 ms-3"> -->
-      
-          <!-- <div id='calendar'></div>
+      <!--end hello-->
 
-          
-      
-          <div class="modal fade edit-form" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-dialog" role="document">
-                  <div class="modal-content">
-                      <div class="modal-header border-bottom-0">
-                          <h5 class="modal-title" id="modal-title">Add Event</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <form id="myForm">
-                          <div class="modal-body">
-                              <div class="alert alert-danger " role="alert" id="danger-alert" style="display: none;">
-                                  End date should be greater than start date.
-                                </div>
-                              <div class="form-group">
-                                  <label for="event-title">Event name <span class="text-danger">*</span></label>
-                                  <input type="text" class="form-control" id="event-title" placeholder="Enter event name" required>
-                              </div>
-                              <div class="form-group">
-                                  <label for="start-date">Start date <span class="text-danger">*</span></label>
-                                  <input type="date" class="form-control" id="start-date" placeholder="start-date" required>
-                              </div>
-                              <div class="form-group">
-                                  <label for="end-date">End date - <small class="text-muted">Optional</small></label>
-                                  <input type="date" class="form-control" id="end-date" placeholder="end-date">
-                              </div>
-                              <div class="form-group">
-                                  <label for="event-color">Color</label>
-                                  <input type="color" class="form-control" id="event-color" value="#3788d8">
-                                </div>
-                          </div>
-                          <div class="modal-footer border-top-0 d-flex justify-content-center">
-                              <button type="submit" class="btn btn-success" id="submit-button">Submit</button>
-                            </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
-      
-          
-          <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="delete-modal-title" aria-hidden="true">
-              <div class="modal-dialog modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="delete-modal-title">Confirm Deletion</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body text-center" id="delete-modal-body">
-                    Are you sure you want to delete the event?
-                  </div>
-                  <div class="modal-footer border-0">
-                      <button type="button" class="btn btn-secondary rounded-sm" data-dismiss="modal" id="cancel-button">Cancel</button>
-                    <button type="button" class="btn btn-danger rounded-lg" id="delete-button">Delete</button>
-                  </div>
+      <!-- </div> -->
+
+      <!--endddddddd last updates and calender-->
+
+      <!--CARDS-->
+
+      <div id="homecards" class="container h-100 z-0">
+        <div class="row align-middle">
+          <div class="col-md-6 col-lg-4 column z-0">
+            <a
+              class="m-0 p-0 text-decoration-none"
+              target="_blank"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdjjElQ67_PRaav79-kk8rK9P1FxPZr0XjM7-_31W8awu7NYQ/viewform"
+            >
+              <div class="card gr-1">
+                <div class="txt">
+                  <h1>Time Sheet</h1>
+                  <!-- <p>Visual communication and problem-solving</p> -->
+                </div>
+                <!-- <a href="#">more</a> -->
+                <div class="ico-card">
+                  <i class="fa-solid fa-file"></i>
                 </div>
               </div>
-            </div> -->
-
-
-        </div>
-         
-        </div>
-     <!-- </div> -->
-
-     <!--endddddddd last updates and calender-->
-
-
-
-     <!--CARDS-->
-
-     <div id="homecards" class="container h-100 z-0">
-      <div class="row align-middle">
-
-        <div class="col-md-6 col-lg-4 column z-0">
-         <a class="m-0 p-0 text-decoration-none" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdjjElQ67_PRaav79-kk8rK9P1FxPZr0XjM7-_31W8awu7NYQ/viewform">
-           <div class="card gr-1">
-            <div class="txt">
-              <h1>Time Sheet</h1>
-              <!-- <p>Visual communication and problem-solving</p> -->
-            </div>
-            <!-- <a href="#">more</a> -->
-            <div class="ico-card">
-              <i class="fa-solid fa-file"></i>
+            </a>
           </div>
-          </div>
-        </a>
-        </div>
 
-        <div class="col-md-6 col-lg-4 column z-0">
+          <div class="col-md-6 col-lg-4 column z-0">
             <a class="m-0 p-0 text-decoration-none" href="comingsoon.html">
-                <div class="card gr-2">
-            <div class="txt">
-              <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button> -->
-              <h1>Projects</h1>
-              <!-- <p>How design is implemented on the web.</p> -->
-            </div>
-            <!-- <a href="#">more</a> -->
-          <div class="ico-card">
-            <i class="fa-solid fa-list-check"></i>
-          </div>
-          </div>
-        </a>
-        </div>
-
-        <div class="col-md-6 col-lg-4 column z-0">
-            <a class="m-0 p-0 text-decoration-none" href="#">
-                <div class="card gr-3">
-            <div class="txt">
-              <h1>Reports</h1>
-              <!-- <p>User Interface and User Experience Design.</p> -->
-            </div>
-            <!-- <a href="#">more</a> -->
-          <div class="ico-card">
-            <i class="fa-solid fa-file-import"></i>
-          </div>
-          </div>
-        </div>
-    </a>
-      </div>
-
-
-
-
-      <div class="row align-middle z-0">
-
-        <div class="col-md-6 col-lg-4 column z-0">
-          <a class="m-0 p-0 text-decoration-none" href="comingsoon.html">
-          <div class="card gr-4">
-            <div class="txt">
-              <h1>Salary</h1>
-              <!-- <p>Visual communication and problem-solving</p> -->
-            </div>
-            <!-- <a href="#">more</a> -->
-            <div class="ico-card">
-              <i class="fa-solid fa-money-bill-wave"></i>
-            </div>
-          </div>
-        </a>
-        </div>
-
-        <div class="col-md-6 col-lg-4 column z-0">
-          <a class="m-0 p-0 text-decoration-none" href="comingsoon.html">
-          <div class="card gr-5">
-            <div class="txt">
-              <h1>Attendance</h1>
-              <!-- <p>How design is implemented on the web.</p> -->
-            </div>
-            <!-- <a href="#">more</a> -->
-          <div class="ico-card">
-            <i class="fa-solid fa-clipboard-user"></i>
-          </div>
-          </div>
-        </a>
-        </div>
-        
-        <div class="col-md-6 col-lg-4 column z-0">
-          <a class="m-0 p-0 text-decoration-none" href="comingsoon.html">
-          <div class="card gr-6">
-            <div class="txt">
-              <h1>Holidays</h1>
-              <!-- <p>User Interface and User Experience Design.</p> -->
-            </div>
-            <!-- <a href="#">more</a> -->
-          <div class="ico-card">
-            <i class="fa-solid fa-cake-candles"></i>
-          </div>
-          </div>
-        </a>
-        </div>
-
-        <div class="col-md-6 col-lg-4 column z-0">
-            <a class="m-0 p-0 text-decoration-none" href="comingsoon.html">
-            <div class="card gr-7">
-              <div class="txt">
-                <h1>Employees Details</h1>
-                <!-- <p>User Interface and User Experience Design.</p> -->
+              <div class="card gr-2">
+                <div class="txt">
+                  <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button> -->
+                  <h1>Projects</h1>
+                  <!-- <p>How design is implemented on the web.</p> -->
+                </div>
+                <!-- <a href="#">more</a> -->
+                <div class="ico-card">
+                  <i class="fa-solid fa-list-check"></i>
+                </div>
               </div>
-              <!-- <a href="#">more</a> -->
-            <div class="ico-card">
-              <i class="fa-solid fa-users"></i>
-            </div>
-            </div>
-          </a>
+            </a>
           </div>
-        
+
+          <div class="col-md-6 col-lg-4 column z-0">
+            <a class="m-0 p-0 text-decoration-none" href="#">
+              <div class="card gr-3">
+                <div class="txt">
+                  <h1>Reports</h1>
+                  <!-- <p>User Interface and User Experience Design.</p> -->
+                </div>
+                <!-- <a href="#">more</a> -->
+                <div class="ico-card">
+                  <i class="fa-solid fa-file-import"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="row align-middle z-0">
+          <div class="col-md-6 col-lg-4 column z-0">
+            <a class="m-0 p-0 text-decoration-none" href="comingsoon.html">
+              <div class="card gr-4">
+                <div class="txt">
+                  <h1>Salary</h1>
+                  <!-- <p>Visual communication and problem-solving</p> -->
+                </div>
+                <!-- <a href="#">more</a> -->
+                <div class="ico-card">
+                  <i class="fa-solid fa-money-bill-wave"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-lg-4 column z-0">
+            <a class="m-0 p-0 text-decoration-none" href="comingsoon.html">
+              <div class="card gr-5">
+                <div class="txt">
+                  <h1>Attendance</h1>
+                  <!-- <p>How design is implemented on the web.</p> -->
+                </div>
+                <!-- <a href="#">more</a> -->
+                <div class="ico-card">
+                  <i class="fa-solid fa-clipboard-user"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-lg-4 column z-0">
+            <a class="m-0 p-0 text-decoration-none" href="comingsoon.html">
+              <div class="card gr-6">
+                <div class="txt">
+                  <h1>Holidays</h1>
+                  <!-- <p>User Interface and User Experience Design.</p> -->
+                </div>
+                <!-- <a href="#">more</a> -->
+                <div class="ico-card">
+                  <i class="fa-solid fa-cake-candles"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-md-6 col-lg-4 column z-0">
+            <a class="m-0 p-0 text-decoration-none" href="comingsoon.html">
+              <div class="card gr-7">
+                <div class="txt">
+                  <h1>Employees Details</h1>
+                  <!-- <p>User Interface and User Experience Design.</p> -->
+                </div>
+                <!-- <a href="#">more</a> -->
+                <div class="ico-card">
+                  <i class="fa-solid fa-users"></i>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
 
-         <!--CARDS-->
+      <!--CARDS-->
 
-
-         <canvas class="my-4 w-100" id="myChart" width="900" height="380" style="display: block; box-sizing: border-box; height: 253px; width: 600;"></canvas>
-
+      <canvas
+        class="my-4 w-100"
+        id="myChart"
+        width="900"
+        height="380"
+        style="display: block; box-sizing: border-box; height: 253px; width: 600"
+      ></canvas>
     </section>
     <!--end home page-->
 
+    <!--script-->
 
-
-    
-<!--script-->
-
-
-<script>
-
-    document.addEventListener("scroll", function() {
+    <script>
+      document.addEventListener("scroll", function () {
         var navbar = document.getElementById("navbar");
-        if (window.scrollY > 50) {  // adjust this value
-            navbar.classList.add("scrolled");
+        if (window.scrollY > 50) {
+          // adjust this value
+          navbar.classList.add("scrolled");
         } else {
-            navbar.classList.remove("scrolled");
+          navbar.classList.remove("scrolled");
         }
-    });
-    
-    
-    
-            const headerEl = document.querySelector('.header');
-    
+      });
 
-        </script>
+      const headerEl = document.querySelector(".header");
+    </script>
 
+    <!--chart-->
 
-<!--chart-->
-
-<script>
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
-        type: 'bar',
+    <script>
+      const ctx = document.getElementById("myChart").getContext("2d");
+      const myChart = new Chart(ctx, {
+        type: "bar",
         data: {
-            labels: ['project X', 'project y', 'project z', 'project a', 'project b', 'project c'],
-            datasets: [{
-                label: 'projects status',
-                data: [12, 99, 55, 75, 25, 36],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
+          labels: ["project X", "project y", "project z", "project a", "project b", "project c"],
+          datasets: [
+            {
+              label: "projects status",
+              data: [12, 99, 55, 75, 25, 36],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
         },
         options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
 
-  </script>
-
-<!--chart-->
+    <!--chart-->
 
     <!--script-->
-    
-    
+
     <!--script links-->
-    
-    
-    
-    <script src="js/color-modes.js"></script>
-    <script src="js/empHome.js"></script>
+
+    <!-- <script src="js/color-modes.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
 
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/dashboard/">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
-            </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="backend/pages/empPage.js"></script>
 
-
-    
-    
-    <!--script links-->  
-    
-    
-    </body>
-    
-    </html>
+    <!--script links-->
+  </body>
+</html>

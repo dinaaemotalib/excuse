@@ -97,10 +97,11 @@
 
           <!-- Icons (Notification and Profile) -->
           <div class="icon-group d-flex align-items-center ms-auto">
-            <div data-bs-toggle="modal" data-bs-target="#notificationModal" class="me-3">
+            <div data-bs-toggle="modal" data-bs-target="#notificationModal" class="me-3" id="bell-notification-icon">
               <i class="fas fa-bell text-white fs-5 position-relative">
                 <span
                   class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"
+                  id="notification-red-ball"
                 ></span>
               </i>
             </div>
@@ -127,38 +128,11 @@
           <div class="modal-header">
             <h5 class="modal-title" id="notificationModalLabel">Notifications</h5>
           </div>
-
           <!-- Modal Body -->
           <div class="modal-body" id="notification">
             <div class="notification-ui_dd-content">
               <!-- Notification Item -->
-              <div class="notification-list notification-list--unread">
-                <div class="notification-list_content d-flex align-items-start">
-                  <!-- User Image -->
-                  <div class="notification-list_img me-3">
-                    <img src="images/profile.png" alt="user" class="rounded-circle" style="width: 50px; height: 50px" />
-                  </div>
-
-                  <!-- Notification Details -->
-                  <div class="notification-list_detail">
-                    <p class="text-dark mb-1"><b>Dina Abd El Motalib</b> requests to leave from 5:30 to 6:30</p>
-                    <p class="text-muted"><small>10 mins ago</small></p>
-                    <!-- Action Buttons -->
-                    <div>
-                      <a href="emp_homepage.html" class="btn btn-success btn-sm me-2">Accept</a>
-                      <a href="emp_homepage.html" class="btn btn-danger btn-sm">Reject</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Additional Notifications -->
-              <!-- Add more .notification-list blocks here if needed -->
-            </div>
-
-            <!-- Load More -->
-            <div class="text-center mt-3">
-              <a href="#!" class="dark-link">Load more activity</a>
+              <div class="notification-list" id="notification-content"></div>
             </div>
           </div>
         </div>
@@ -183,9 +157,9 @@
 
         <!-- Sidebar Body -->
         <div class="offcanvas-body d-flex mx-2">
-          <div class="col">
+          <div class="col side-bar">
             <!-- Sidebar Links -->
-            <a class="text-decoration-none" href="#">
+            <a class="text-decoration-none" href="index.html">
               <p class="text-black"><i class="fa-solid fa-house mx-2"></i>Home</p>
             </a>
 
@@ -193,11 +167,11 @@
               <p class="text-black"><i class="fa-solid fa-sheet-plastic mx-2"></i>Time sheet</p>
             </a>
 
-            <a class="text-decoration-none" href="#">
+            <a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal2">
               <p class="text-black"><i class="fa-solid fa-clock mx-2"></i>Apply for excuse</p>
             </a>
 
-            <a class="text-decoration-none" href="#">
+            <a class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal1">
               <p class="text-black"><i class="fa-solid fa-person-walking-arrow-right mx-2"></i>Apply for leave</p>
             </a>
 
@@ -222,12 +196,12 @@
             </a>
 
             <!-- Logout Button -->
-            <button class="btn btn-outline-danger text-center container-fluid my-3">
+            <button class="btn btn-outline-danger text-center container-fluid my-3" id="logout-btn">
               Logout <i class="fa-solid fa-arrow-right-from-bracket mx-2"></i>
             </button>
 
             <!-- Collapse Button -->
-            <button class="btn btn-outline-info text-center container-fluid">
+            <button class="btn btn-outline-info text-center container-fluid" data-bs-dismiss="offcanvas">
               Collapse <i class="fa-solid fa-angles-left mx-2"></i>
             </button>
           </div>
@@ -242,10 +216,10 @@
         <!-- Left Section -->
         <div class="hello-left d-flex flex-column justify-content-center">
           <h2 class="mb-3 fw-bolder fs-2 hello-text">
-            Hello Dina
+            <span id="emp-name"></span>
             <img src="images/homewave.png" alt="Wave Icon" />
           </h2>
-          <span>You Can Do It!</span>
+          <span id="emp-role"></span>
         </div>
 
         <!-- Right Section -->
@@ -257,115 +231,6 @@
       </div>
 
       <!--end hello-->
-
-      <div class="container mt-4">
-        <div class="row">
-          <!-- Last Update Section -->
-          <div class="col-lg-4 col-md-12 my-3">
-            <div class="card text-bg-secondary mx-1 last-update">
-              <div class="card-header fa-2x fw-medium">Latest Update</div>
-              <div class="card-body last-update-body">
-                <p class="card-text text-white fw-lighter">
-                  You applied for <span class="fw-bolder">leave</span> for <span class="fw-bolder">18th March</span> to
-                  <span class="fw-bolder">22 March</span>.
-                </p>
-              </div>
-              <div class="card-header fa-2x fw-medium"></div>
-              <div class="card-body last-update-body">
-                <p class="card-text text-white fw-lighter">
-                  Remember that <span class="fw-bolder">project x</span> left for its due date
-                  <span class="fw-bolder">4 days</span> to <span class="fw-bolder">22 March</span>.
-                </p>
-                <p class="card-text text-white fw-lighter">
-                  Remember that <span class="fw-bolder">project x</span> left for its due date
-                  <span class="fw-bolder">4 days</span> to <span class="fw-bolder">22 March</span>.
-                </p>
-                <p class="card-text text-white fw-lighter">
-                  Remember that <span class="fw-bolder">project x</span> left for its due date
-                  <span class="fw-bolder">4 days</span> to <span class="fw-bolder">22 March</span>.
-                </p>
-                <p class="card-text text-white fw-lighter">
-                  Remember that <span class="fw-bolder">project x</span> left for its due date
-                  <span class="fw-bolder">4 days</span> to <span class="fw-bolder">22 March</span>.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Calendar Section -->
-          <div class="col-lg-8 col-md-12">
-            <div class="d-flex justify-content-between align-items-center mb-3"></div>
-            <div id="calendar" class="ms-3 mb-5 border rounded p-3 bg-light shadow">
-              <button
-                type="button"
-                class="btn btn-outline-info"
-                id="add-event-button"
-                data-bs-toggle="modal"
-                data-bs-target="#form"
-              >
-                + Add Event
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Add Event Modal -->
-        <div class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modal-title">Add Event</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <form id="myForm">
-                <div class="modal-body">
-                  <div class="alert alert-danger d-none" id="danger-alert">
-                    End date should be greater than start date.
-                  </div>
-                  <div class="form-group mb-3">
-                    <label for="event-title" class="form-label">Event Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="event-title" placeholder="Enter event name" required />
-                  </div>
-                  <div class="form-group mb-3">
-                    <label for="start-date" class="form-label">Start Date <span class="text-danger">*</span></label>
-                    <input type="date" class="form-control" id="start-date" required />
-                  </div>
-                  <div class="form-group mb-3">
-                    <label for="end-date" class="form-label">End Date</label>
-                    <input type="date" class="form-control" id="end-date" />
-                  </div>
-                  <div class="form-group mb-3">
-                    <label for="event-color" class="form-label">Event Color</label>
-                    <input type="color" class="form-control" id="event-color" value="#3788d8" />
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="submit" class="btn btn-success w-100" id="submit-button">Submit</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        <!-- Delete Confirmation Modal -->
-        <div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="delete-modal-title" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="delete-modal-title">Confirm Deletion</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body text-center">Are you sure you want to delete <b id="delete-event-name"></b>?</div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="cancel-button" data-bs-dismiss="modal">
-                  Cancel
-                </button>
-                <button type="button" class="btn btn-danger" id="delete-button">Delete</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <!--CARDS-->
       <div id="homecards" class="container h-100 z-0 m-0">
@@ -488,10 +353,9 @@
                     <option value="" disabled selected>Choose your leave type</option>
                     <option value="Annual Leaves">Annual Leaves</option>
                     <option value="Sick Leave">Sick Leave</option>
-                    <option value="Relative Death">Relative Death</option>
+                    <option value="Death Leave">Death Leave</option>
                     <option value="Hajj Leave">Hajj Leave</option>
                     <option value="Labor Leave">Labor Leave</option>
-                    <option value="Half-day Leave">Half-day Leave</option>
                   </select>
                 </div>
 
@@ -604,18 +468,6 @@
 
     <!-- Scripts -->
 
-    <script>
-      // Navbar Scroll Effect
-      document.addEventListener("scroll", function () {
-        const navbar = document.getElementById("navbar");
-        if (window.scrollY > 50) {
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
-      });
-    </script>
-
     <!-- Dependencies -->
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -633,9 +485,10 @@
     <script src="https://unpkg.com/mdb-ui-kit@6.0.0/mdb.min.js"></script>
 
     <!-- Custom Scripts -->
-    <script type="module" src="js/empHome.js"></script>
-    <script type="module" src="backend/view/empPage.js"></script>
-    <script type="module" src="backend/view/request/excuseRequest.js"></script>
-    <script type="module" src="backend/view/request/leaveRequest.js"></script>
+    <script type="module" src="backend/modules/header.js"></script>
+    <script type="module" src="backend/modules/user.js"></script>
+    <script type="module" src="backend/modules/requests.js"></script>
+    <!-- Notifications module is needed for seniors -->
+    <script type="module" src="backend/modules/notifications.js"></script>
   </body>
 </html>

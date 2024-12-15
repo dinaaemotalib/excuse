@@ -1,4 +1,5 @@
 import { getUserByEmail } from "../controller/User.js";
+import { ROLE_CO, ROLE_EMPLOYEE, ROLE_HR, ROLE_SENIOR } from "../utils/constants.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("loginForm").addEventListener("submit", async function (e) {
@@ -26,18 +27,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Redirect based on user role
         switch (user.role) {
-          case "Co-Founder":
-          case "Admin":
+          case ROLE_CO:
             window.location.href = "admin.html"; // Redirect to admin page
             break;
-          case "HR":
+          case ROLE_HR:
             window.location.href = "hr_homepage.html"; // Redirect to HR page
             break;
-          case "Senior":
+          case ROLE_SENIOR:
+          case ROLE_EMPLOYEE:
             window.location.href = "emp_homepage.html"; // Redirect to Senior employee page
-            break;
-          case "Employee":
-            window.location.href = "emp_homepage.html"; // Redirect to employee page
             break;
           default:
             throw new Error("Unknown user role");

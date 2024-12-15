@@ -1,0 +1,1 @@
+- In excuse schema we should remove `max_allowed_hours`, we should make a constraint that match that the difference between `to` and `from` do not exceeds 4 hours instead of having it as a column

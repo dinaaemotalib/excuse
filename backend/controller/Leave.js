@@ -109,7 +109,7 @@ export const getAllPendingLeavesForApproval = async () => {
   }
 };
 
-export const getAllAcceptedLeaves = async () => {
+export const getAllAcceptedLeaves = async (year) => {
   try {
     if (LOGGING_USER === null) {
       throw new Error("No loged in user to get its excuses");
@@ -117,8 +117,11 @@ export const getAllAcceptedLeaves = async () => {
     if (LOGGING_USER.role !== ROLE_HR) {
       throw new Error(`${LOGGING_USER.role}/s are not authorized for that route`);
     }
+
+    const startOfYear = `${year}-01-01`; // First day of the year
+
     const response = await fetch(
-      `${SUPABASE_URl}/rest/v1/leaves?status=eq.${STATUS_ACCEPTED}&select=*,user_code(name,user_code)`,
+      `${SUPABASE_URl}/rest/v1/leaves?status=eq.${STATUS_ACCEPTED}&or=(from_date.gte.${startOfYear},to_date.gte.${startOfYear})&select=*,user_code(name,user_code)`,
       {
         method: "GET",
         headers: {
@@ -141,7 +144,7 @@ export const getAllAcceptedLeaves = async () => {
   }
 };
 
-export const getAllLeaves = async () => {
+export const getAllLeaves = async (year) => {
   try {
     if (LOGGING_USER === null) {
       throw new Error("No loged in user to get its excuses");
@@ -149,13 +152,19 @@ export const getAllLeaves = async () => {
     if (LOGGING_USER.role !== ROLE_CO) {
       throw new Error(`${LOGGING_USER.role}/s are not authorized for that route`);
     }
-    const response = await fetch(`${SUPABASE_URl}/rest/v1/leaves?select=*,user_code(name),approval_code(email)`, {
-      method: "GET",
-      headers: {
-        apikey: SUPABASE_KEY,
-        Authorization: `Bearer ${SUPABASE_KEY}`,
-      },
-    });
+
+    const startOfYear = `${year}-01-01`; // First day of the year
+
+    const response = await fetch(
+      `${SUPABASE_URl}/rest/v1/leaves?or=(from_date.gte.${startOfYear},to_date.gte.${startOfYear})&select=*,user_code(name),approval_code(email)`,
+      {
+        method: "GET",
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+        },
+      }
+    );
 
     if (!response.ok) {
       const errorData = await response.json();

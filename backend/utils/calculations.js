@@ -42,6 +42,14 @@ export function calculateDurationNumbersOnly(fromTime, toTime) {
   return toHours - fromHours + (toMinutes - fromMinutes) / 60;
 }
 
+export function formatHours(decimalHours) {
+  const hours = Math.floor(decimalHours); // Get the whole number part (hours)
+  const minutes = Math.round((decimalHours - hours) * 60); // Convert the decimal part to minutes
+  const hoursString = hours === 0 ? "" : `${hours} Hours`;
+  const minutesString = minutes === 0 ? "" : `${minutes} min`;
+  return hoursString + " " + minutesString;
+}
+
 export function calculateDaysBetweenDates(startDate, endDate) {
   const start = new Date(startDate);
   const end = new Date(endDate);
@@ -61,11 +69,14 @@ export function calculateDaysBetweenDates(startDate, endDate) {
     // Both dates in the same year
     daysInStartYear = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
   } else {
-    // Days in start year
+    /*
+      - Start is incremented by 1 to take the from_date into consideration
+      - ceil one and floor the other to not ceil two times results in 1 day addition
+      - ceiling the start will work as it will get subtracted from `startYearEnd` so as to increment the last day in the year too
+      - floor the end so that to not accumilate the excess hours in the first day in the new year, resulting in addition of new day
+    */
     daysInStartYear = Math.ceil((startYearEnd - start) / (1000 * 60 * 60 * 24)) + 1;
-
-    // Days in end year
-    daysInEndYear = Math.ceil((end - endYearStart) / (1000 * 60 * 60 * 24)) + 1;
+    daysInEndYear = Math.floor((end - endYearStart) / (1000 * 60 * 60 * 24));
   }
 
   return [daysInStartYear, daysInEndYear];

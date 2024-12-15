@@ -1,7 +1,8 @@
-import { getAllLeaves, getAllLeavesByUser, getAllNotRejectedLeaves } from "../controller/Leave.js";
+import { getAllLeaves, getAllLeavesByUser } from "../controller/Leave.js";
 import {
   ROLE_CO,
   ROLE_EMPLOYEE,
+  ROLE_HR,
   ROLE_SENIOR,
   STATUS_ACCEPTED,
   STATUS_DECLINED,
@@ -16,8 +17,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     window.location.href = "loginform.html";
   }
   try {
-    if (LOGGING_USER.role === ROLE_EMPLOYEE || LOGGING_USER.role === ROLE_SENIOR) {
+    if (LOGGING_USER.role === ROLE_EMPLOYEE || LOGGING_USER.role === ROLE_SENIOR || LOGGING_USER.role === ROLE_HR) {
       const leaves = await getAllLeavesByUser();
+      leaves.sort((a, b) => new Date(b.from_date) - new Date(a.from_date));
       let rows = "";
       leaves.forEach((leave) => {
         rows += renderLeave(leave, false);
@@ -26,8 +28,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       leavesTable.innerHTML += rows;
     }
     if (LOGGING_USER.role === ROLE_CO) {
-      const leaves = await getAllLeaves();
-      console.log(leaves);
+      const leaves = await getAllLeaves(new Date().getFullYear());
+      leaves.sort((a, b) => new Date(b.from_date) - new Date(a.from_date));
       let rows = "";
       leaves.forEach((leave) => {
         rows += renderLeave(leave, true);
@@ -55,7 +57,7 @@ function renderLeave(leave, includeName) {
   const duration = (new Date(leave.to_date) - new Date(leave.from_date)) / 86400_000;
 
   return `<tr>
-            ${includeName && '<td class="text-center">' + leave.user_code.name + "</td>"}
+            ${includeName ? '<td class="text-center">' + leave.user_code.name + "</td>" : ""}
             <td class="text-center">${leave.type}</td>
             <td class="text-center">${leave.from_date}</td>
             <td class="text-center">${leave.to_date}</span></td>
@@ -72,7 +74,7 @@ function renderLeave(leave, includeName) {
 function renderLeaveTableHead(includeName) {
   return `
       <tr>
-        ${includeName && '<th class="text-center">Requester Name</th>'}
+        ${includeName ? '<th class="text-center">Requester Name</th>' : ""}
         <th scope="col">Type</th>
         <th scope="col">Start Date</th>
         <th scope="col">End Date</th>

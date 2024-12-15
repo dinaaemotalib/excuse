@@ -180,7 +180,7 @@
             <a class="text-decoration-none" href="#"><p class="text-black text-center pt-3"><i class="fa-solid fa-arrow-right-from-bracket mx-2 text-black "></i>Logout</p></a>
         </div>  -->
 
-            <button class="btn btn-outline-danger text-center container-fluid my-3">
+            <button class="btn btn-outline-danger text-center container-fluid my-3" id="logout-btn">
               Logout<i class="fa-solid fa-arrow-right-from-bracket mx-2"></i>
             </button>
 
@@ -236,7 +236,7 @@
                         <div class="row">
                           <div class="col">
                             <span class="h6 font-semibold text-muted text-sm d-block mb-2">Days took</span>
-                            <span class="h3 font-bold mb-0" id="daysTook">7</span>
+                            <span class="h3 font-bold mb-0" id="daysTook">--</span>
                           </div>
                           <div class="col-auto">
                             <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
@@ -259,7 +259,7 @@
                         <div class="row">
                           <div class="col">
                             <span class="h6 font-semibold text-muted text-sm d-block mb-2">Days left</span>
-                            <span class="h3 font-bold mb-0" id="daysLeft">15</span>
+                            <span class="h3 font-bold mb-0" id="daysLeft">--</span>
                           </div>
                           <div class="col-auto">
                             <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
@@ -282,7 +282,7 @@
                         <div class="row">
                           <div class="col">
                             <span class="h6 font-semibold text-muted text-sm d-block mb-2">Hours took</span>
-                            <span class="h3 font-bold mb-0" id="hoursTook">4</span>
+                            <span class="h3 font-bold mb-0" id="hoursTook">--</span>
                           </div>
                           <div class="col-auto">
                             <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
@@ -305,7 +305,7 @@
                         <div class="row">
                           <div class="col">
                             <span class="h6 font-semibold text-muted text-sm d-block mb-2">Hours left</span>
-                            <span class="h3 font-bold mb-0" id="hoursLeft">0</span>
+                            <span class="h3 font-bold mb-0" id="hoursLeft">--</span>
                           </div>
                           <div class="col-auto">
                             <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
@@ -342,28 +342,9 @@
     </section>
     <!--end home page-->
 
-    <!--script-->
-
-    <script>
-      document.addEventListener("scroll", function () {
-        var navbar = document.getElementById("navbar");
-        if (window.scrollY > 50) {
-          // adjust this value
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
-      });
-
-      const headerEl = document.querySelector(".header");
-    </script>
-
-    <!--script-->
-
     <!--script links-->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="module" src="backend/pages/profile.js"></script>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
@@ -372,14 +353,7 @@
       integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
       crossorigin="anonymous"
     ></script>
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.2.0/main.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.2.0/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.2.0/main.min.js"></script> -->
-
-    <!--script links-->
+    <script type="module" src="backend/modules/header.js"></script>
+    <script type="module" src="backend/pages/profile.js"></script>
   </body>
 </html>

@@ -102,7 +102,7 @@ export const getAllPendingExcusesForApproval = async () => {
   }
 };
 
-export const getAllAcceptedExcuses = async () => {
+export const getAllAcceptedExcuses = async (year, month) => {
   try {
     if (LOGGING_USER === null) {
       throw new Error("No loged in user to get its excuses");
@@ -110,9 +110,12 @@ export const getAllAcceptedExcuses = async () => {
     if (LOGGING_USER.role !== ROLE_HR) {
       throw new Error(`${LOGGING_USER.role}/s are not authorized for that route`);
     }
-    //
+
+    const startOfMonth = `${year.toString()}-${month.toString().padStart(2, "0")}-01`;
+    const endOfMonth = `${year.toString()}-${month.toString().padStart(2, "0")}-31`;
+
     const response = await fetch(
-      `${SUPABASE_URl}/rest/v1/excuses?status=eq.${STATUS_ACCEPTED}&select=*,user_code(name,user_code)`,
+      `${SUPABASE_URl}/rest/v1/excuses?status=eq.${STATUS_ACCEPTED}&date=gte.${startOfMonth}&date=lt.${endOfMonth}&select=*,user_code(name,user_code)`,
       {
         method: "GET",
         headers: {
@@ -135,7 +138,7 @@ export const getAllAcceptedExcuses = async () => {
   }
 };
 
-export const getAllExcuses = async () => {
+export const getAllExcuses = async (year, month) => {
   try {
     if (LOGGING_USER === null) {
       throw new Error("No loged in user to get its excuses");
@@ -143,14 +146,20 @@ export const getAllExcuses = async () => {
     if (LOGGING_USER.role !== ROLE_CO) {
       throw new Error(`${LOGGING_USER.role}/s are not authorized for that route`);
     }
-    //
-    const response = await fetch(`${SUPABASE_URl}/rest/v1/excuses?select=*,user_code(name)`, {
-      method: "GET",
-      headers: {
-        apikey: SUPABASE_KEY,
-        Authorization: `Bearer ${SUPABASE_KEY}`,
-      },
-    });
+
+    const startOfMonth = `${year.toString()}-${month.toString().padStart(2, "0")}-01`;
+    const endOfMonth = `${year.toString()}-${month.toString().padStart(2, "0")}-31`;
+
+    const response = await fetch(
+      `${SUPABASE_URl}/rest/v1/excuses?date=gte.${startOfMonth}&date=lt.${endOfMonth}&select=*,user_code(name,user_code),approval_code(email)`,
+      {
+        method: "GET",
+        headers: {
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+        },
+      }
+    );
 
     if (!response.ok) {
       const errorData = await response.json();

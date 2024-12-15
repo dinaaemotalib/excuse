@@ -2,6 +2,7 @@ import { getAllAcceptedExcuses, getAllExcuses } from "../controller/Excuse.js";
 import { getAllAcceptedLeaves, getAllLeaves } from "../controller/Leave.js";
 import { calculateDaysBetweenDates, calculateDuration, calculateDurationNumbersOnly } from "../utils/calculations.js";
 import {
+  EXCUSE_TYPE_OFFICIAL,
   EXCUSE_TYPE_PERSONAL,
   LEAVE_TYPE_ANNUAL,
   LEAVE_TYPE_DEATH,
@@ -18,6 +19,9 @@ import {
 } from "../utils/constants.js";
 import { LOGGING_USER } from "../utils/global.js";
 
+let targetYear;
+let targetMonth;
+
 document.addEventListener("DOMContentLoaded", async function () {
   if (LOGGING_USER === null) {
     window.location.href = "loginform.html";
@@ -26,12 +30,74 @@ document.addEventListener("DOMContentLoaded", async function () {
     alert("Only HR/s can access this route, you will get redirected to login");
     window.location.href = "loginform.html";
   }
+  const currentDate = new Date();
+  targetYear = Number(currentDate.getFullYear());
+  targetMonth = Number(currentDate.getMonth() + 1); // Ensure 2-digit format
+
+  await doAll(targetYear, targetMonth);
+
+  document.getElementById("requests-report-title").innerHTML = `Excuse Requests for ${new Date(
+    `${targetYear}-${targetMonth}`
+  ).toLocaleString("default", { month: "long" })} | ${new Date(`${targetYear}-${targetMonth}`).getFullYear()}`;
+
+  document.getElementById("pills-Excuses-tab").addEventListener("click", async () => {
+    const selectedDate = document.getElementById("month-select").value || `${targetYear}-${targetMonth}`;
+
+    const [currentYear, currentMonth] = String(selectedDate).split("-");
+    if (currentYear.toString() === targetYear.toString() && currentMonth.toString() === targetMonth.toString()) {
+      return;
+    }
+    targetYear = Number(currentYear);
+    targetMonth = Number(currentMonth);
+    await doAll(targetYear, targetMonth);
+    document.getElementById("requests-report-title").innerHTML = `Excuse Requests for ${new Date(
+      `${targetYear}-${targetMonth}`
+    ).toLocaleString("default", { month: "long" })} | ${new Date(`${targetYear}-${targetMonth}`).getFullYear()}`;
+  });
+  document.getElementById("pills-leaves-tab").addEventListener("click", async () => {
+    const selectedDate = document.getElementById("month-select").value || `${targetYear}-${targetMonth}`;
+
+    const [currentYear, currentMonth] = String(selectedDate).split("-");
+    if (currentYear.toString() === targetYear.toString()) {
+      return;
+    }
+    targetYear = Number(currentYear);
+    targetMonth = Number(currentMonth);
+    await doAll(targetYear, targetMonth);
+
+    document.getElementById("requests-report-title").innerHTML = `Leave Requests for year ${
+      targetYear || new Date().getFullYear()
+    } `;
+  });
+
+  document.getElementById("filter-button").addEventListener("click", async () => {
+    targetYear = currentYear;
+    targetMonth = currentMonth;
+    document.getElementById("requests-report-title").innerHTML = `Excuse Requests for ${new Date(
+      selectedDate
+    ).toLocaleString("default", { month: "long" })} | ${new Date().getFullYear()}`;
+  });
+});
+
+// ------------
+async function doAll(_targetYear, _targetMonth) {
   try {
     // Excuses
-    const excuses = await getAllAcceptedExcuses();
-    const mergedExcuses = filterAndMergeExcuses(excuses);
+    const excuses = await getAllAcceptedExcuses(_targetYear, _targetMonth);
+    console.log("excuses:", excuses);
+    const mergedExcusesPersonal = filterAndMergeExcuses(
+      excuses.filter((excuse) => excuse.type === EXCUSE_TYPE_PERSONAL),
+      EXCUSE_TYPE_PERSONAL
+    );
+    const mergedExcusesOfficial = filterAndMergeExcuses(
+      excuses.filter((excuse) => excuse.type === EXCUSE_TYPE_OFFICIAL),
+      EXCUSE_TYPE_OFFICIAL
+    );
+    const allMergedExcuses = [...mergedExcusesPersonal, ...mergedExcusesOfficial];
+    allMergedExcuses.sort((a, b) => a.userCode.localeCompare(b.userCode));
+
     let rows = "";
-    mergedExcuses.forEach((request) => {
+    allMergedExcuses.forEach((request) => {
       rows += renderRequest(
         request.name,
         request.type,
@@ -40,49 +106,51 @@ document.addEventListener("DOMContentLoaded", async function () {
         request.from,
         request.to,
         formatHours(request.totalDuration),
-        formatHours(request.remaining)
+        isNaN(Number(request.remaining)) ? request.remaining : formatHours(request.remaining)
       );
     });
     document.getElementById("hr-excuse-report-table-body").innerHTML = rows;
 
     // Leaves
-    const leaves = await getAllAcceptedLeaves();
+    const leaves = await getAllAcceptedLeaves(targetYear);
     console.log("leaves:", leaves);
-    const currentYearLeaves = leaves.filter((leave) => {
+    const targetYearLeaves = leaves.filter((leave) => {
       if (!leave.from_date || !leave.to_date) return false;
-
-      const today = new Date();
-      const currentYear = today.getFullYear();
 
       const yearFrom = leave.from_date.split("-").map(Number)[0];
       const yearTo = leave.to_date.split("-").map(Number)[0];
-      return yearFrom === currentYear || yearTo === currentYear;
+      return yearFrom === _targetYear || yearTo === _targetYear;
     });
 
     const mergedLeavesAnnual = filterAndMergeLeaves(
-      currentYearLeaves.filter((leave) => leave.type === LEAVE_TYPE_ANNUAL),
+      targetYearLeaves.filter((leave) => leave.type === LEAVE_TYPE_ANNUAL),
       LEAVE_TYPE_ANNUAL,
-      MAX_ALLOWED_ANNUAL_LEAVE_DAYS
+      MAX_ALLOWED_ANNUAL_LEAVE_DAYS,
+      targetYear
     );
     const mergedLeavesSick = filterAndMergeLeaves(
-      currentYearLeaves.filter((leave) => leave.type === LEAVE_TYPE_SICK),
+      targetYearLeaves.filter((leave) => leave.type === LEAVE_TYPE_SICK),
       LEAVE_TYPE_SICK,
-      MAX_ALLOWED_SICK_LEAVE_DAYS
+      MAX_ALLOWED_SICK_LEAVE_DAYS,
+      targetYear
     );
     const mergedLeavesHajj = filterAndMergeLeaves(
-      currentYearLeaves.filter((leave) => leave.type === LEAVE_TYPE_HAJJ),
+      targetYearLeaves.filter((leave) => leave.type === LEAVE_TYPE_HAJJ),
       LEAVE_TYPE_HAJJ,
-      MAX_ALLOWED_HAJJ_LEAVE_DAYS
+      MAX_ALLOWED_HAJJ_LEAVE_DAYS,
+      targetYear
     );
     const mergedLeavesLabor = filterAndMergeLeaves(
-      currentYearLeaves.filter((leave) => leave.type === LEAVE_TYPE_LABOR),
+      targetYearLeaves.filter((leave) => leave.type === LEAVE_TYPE_LABOR),
       LEAVE_TYPE_LABOR,
-      MAX_ALLOWED_LABOR_LEAVE_DAYS
+      MAX_ALLOWED_LABOR_LEAVE_DAYS,
+      targetYear
     );
     const mergedLeavesDeath = filterAndMergeLeaves(
-      currentYearLeaves.filter((leave) => leave.type === LEAVE_TYPE_DEATH),
+      targetYearLeaves.filter((leave) => leave.type === LEAVE_TYPE_DEATH),
       LEAVE_TYPE_DEATH,
-      MAX_ALLOWED_DEATH_LEAVE_DAYS
+      MAX_ALLOWED_DEATH_LEAVE_DAYS,
+      targetYear
     );
 
     const allMergedLeaves = [
@@ -95,7 +163,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     allMergedLeaves.sort((a, b) => a.userCode.localeCompare(b.userCode));
 
     rows = "";
-    console.log("allMergedLeaves:", allMergedLeaves);
     allMergedLeaves.forEach((request) => {
       rows += renderRequest(
         request.name,
@@ -113,7 +180,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     console.log("Failed to Fetch Leaves");
     console.log("ERROR:", error);
   }
-});
+}
 
 // ----------
 
@@ -132,28 +199,17 @@ function renderRequest(name, type, category, date, from, to, duration, remaining
 }
 
 // utils
-function filterAndMergeExcuses(excuses) {
-  const today = new Date();
-  const currentYear = today.getFullYear();
-  const currentMonth = today.getMonth() + 1; // Months are 0-based in JavaScript
-
-  const mappedData = excuses
-    .filter((excuse) => {
-      if (!excuse.date) return false;
-
-      const [year, month] = excuse.date.split("-").map(Number);
-      return year === currentYear && month === currentMonth && excuse.type === EXCUSE_TYPE_PERSONAL;
-    })
-    .map((element) => ({
-      name: element.user_code.name,
-      type: "Excuse",
-      category: element.type,
-      date: element.date,
-      from: element.from_time,
-      to: element.to_time,
-      duration: calculateDurationNumbersOnly(element.from_time, element.to_time),
-      userCode: element.user_code.user_code, // Keep for merging later
-    }));
+function filterAndMergeExcuses(excuses, type) {
+  const mappedData = excuses.map((element) => ({
+    name: element.user_code.name,
+    type: "Excuse",
+    category: element.type,
+    date: element.date,
+    from: element.from_time,
+    to: element.to_time,
+    duration: calculateDurationNumbersOnly(element.from_time, element.to_time),
+    userCode: element.user_code.user_code, // Keep for merging later
+  }));
 
   const mergedData = Object.values(
     mappedData.reduce((acc, curr) => {
@@ -170,17 +226,13 @@ function filterAndMergeExcuses(excuses) {
     }, {})
   ).map((user) => ({
     ...user,
-    remaining: MAX_ALLOWED_EXCUSE_HOURS - user.totalDuration, // Calculate remaining
+    remaining: type === EXCUSE_TYPE_PERSONAL ? MAX_ALLOWED_EXCUSE_HOURS - user.totalDuration : "---", // Calculate remaining
   }));
 
   return mergedData;
 }
 
-function filterAndMergeLeaves(leaves, leaveType, maxDaysAllowed) {
-  console.log(leaves);
-  const today = new Date();
-  const currentYear = today.getFullYear();
-
+function filterAndMergeLeaves(leaves, leaveType, maxDaysAllowed, targetYear) {
   const mappedData = leaves.map((element) => ({
     name: element.user_code.name,
     type: "Leave",
@@ -188,9 +240,9 @@ function filterAndMergeLeaves(leaves, leaveType, maxDaysAllowed) {
     from: element.from_date,
     to: element.to_date,
     duration:
-      Number(currentYear) === Number(new Date(element.from_date).getFullYear())
+      targetYear === Number(new Date(element.from_date).getFullYear())
         ? calculateDaysBetweenDates(element.from_date, element.to_date)[0]
-        : Number(currentYear) === Number(new Date(element.to_date).getFullYear())
+        : targetYear === Number(new Date(element.to_date).getFullYear())
         ? calculateDaysBetweenDates(element.from_date, element.to_date)[1]
         : 0, // This line can't be reached in normal situations
     userCode: element.user_code.user_code, // Keep for merging later

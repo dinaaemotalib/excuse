@@ -30,5 +30,5 @@ export const MAX_ALLOWED_DEATH_LEAVE_DAYS = 3;
 export const LEAVE_TYPE_ANNUAL = "Annual Leaves";
 export const LEAVE_TYPE_SICK = "Sick Leave";
 export const LEAVE_TYPE_HAJJ = "Hajj Leave";
-export const LEAVE_TYPE_LABOR = "Labor Leaves";
-export const LEAVE_TYPE_DEATH = "Death Leaves";
+export const LEAVE_TYPE_LABOR = "Labor Leave";
+export const LEAVE_TYPE_DEATH = "Death Leave";

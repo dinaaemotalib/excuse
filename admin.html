@@ -371,21 +371,6 @@
     <!--end home page-->
 
     <!--script-->
-
-    <script>
-      document.addEventListener("scroll", function () {
-        var navbar = document.getElementById("navbar");
-        if (window.scrollY > 50) {
-          // adjust this value
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
-      });
-
-      const headerEl = document.querySelector(".header");
-    </script>
-
     <!--chart-->
 
     <script>
@@ -449,7 +434,10 @@
       integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="backend/pages/empPage.js"></script>
+
+    <script type="module" src="backend/modules/header.js"></script>
+    <script type="module" src="backend/modules/user.js"></script>
+    <script type="module" src="backend/modules/notifications.js"></script>
 
     <!--script links-->
   </body>

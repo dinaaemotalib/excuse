@@ -353,10 +353,9 @@
                     <option value="" disabled selected>Choose your leave type</option>
                     <option value="Annual Leaves">Annual Leaves</option>
                     <option value="Sick Leave">Sick Leave</option>
-                    <option value="Relative Death">Relative Death</option>
+                    <option value="Death Leave">Death Leave</option>
                     <option value="Hajj Leave">Hajj Leave</option>
                     <option value="Labor Leave">Labor Leave</option>
-                    <option value="Half-day Leave">Half-day Leave</option>
                   </select>
                 </div>
 
@@ -469,18 +468,6 @@
 
     <!-- Scripts -->
 
-    <script>
-      // Navbar Scroll Effect
-      document.addEventListener("scroll", function () {
-        const navbar = document.getElementById("navbar");
-        if (window.scrollY > 50) {
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
-      });
-    </script>
-
     <!-- Dependencies -->
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -498,7 +485,10 @@
     <script src="https://unpkg.com/mdb-ui-kit@6.0.0/mdb.min.js"></script>
 
     <!-- Custom Scripts -->
-    <script type="module" src="backend/pages/empPage.js"></script>
-    <script type="module" src="backend/pages/empAndSenior.js"></script>
+    <script type="module" src="backend/modules/header.js"></script>
+    <script type="module" src="backend/modules/user.js"></script>
+    <script type="module" src="backend/modules/requests.js"></script>
+    <!-- Notifications module is needed for seniors -->
+    <script type="module" src="backend/modules/notifications.js"></script>
   </body>
 </html>

@@ -1,8 +1,9 @@
-import { getAllExcuses, getAllExcusesByUser, getAllNotRejectedExcuses } from "../controller/Excuse.js";
-import { calculateDuration } from "../utils/calculations.js";
+import { getAllExcuses, getAllExcusesByUser } from "../controller/Excuse.js";
+import { calculateDuration, calculateDurationNumbersOnly, formatHours } from "../utils/calculations.js";
 import {
   ROLE_CO,
   ROLE_EMPLOYEE,
+  ROLE_HR,
   ROLE_SENIOR,
   STATUS_ACCEPTED,
   STATUS_DECLINED,
@@ -17,8 +18,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     window.location.href = "loginform.html";
   }
   try {
-    if (LOGGING_USER.role === ROLE_EMPLOYEE || LOGGING_USER.role === ROLE_SENIOR) {
+    if (LOGGING_USER.role === ROLE_EMPLOYEE || LOGGING_USER.role === ROLE_SENIOR || LOGGING_USER.role === ROLE_HR) {
       const excuses = await getAllExcusesByUser();
+      excuses.sort((a, b) => new Date(b.date) - new Date(a.date));
       let rows = "";
       excuses.forEach((excuse) => {
         rows += renderExcuse(excuse, false);
@@ -27,7 +29,10 @@ document.addEventListener("DOMContentLoaded", async function () {
       excusesTable.innerHTML += rows;
     }
     if (LOGGING_USER.role === ROLE_CO) {
-      const excuses = await getAllExcuses();
+      const _now = new Date();
+      const excuses = await getAllExcuses(_now.getFullYear(), _now.getMonth() + 1);
+      excuses.sort((a, b) => new Date(b.date) - new Date(a.date));
+      console.log(excuses);
       let rows = "";
       excuses.forEach((excuse) => {
         rows += renderExcuse(excuse, true);
@@ -50,9 +55,9 @@ function renderExcuse(excuse, includeName) {
   } else if (excuse.status === STATUS_DECLINED) {
     alert = "danger";
   }
-  const duration = calculateDuration(excuse.from_time, excuse.to_time);
+  const duration = calculateDurationNumbersOnly(excuse.from_time, excuse.to_time);
   return `<tr>
-            ${includeName && '<td class="text-center">' + excuse.user_code.name + "</td>"}
+            ${includeName ? '<td class="text-center">' + excuse.user_code.name + "</td>" : ""}
             <td class="text-center">${excuse.type}</td>
             <td class="text-center">${excuse.date}</td>
             <td class="text-center">${excuse.from_time}</td>
@@ -62,7 +67,7 @@ function renderExcuse(excuse, includeName) {
             <td class="text-center"><div class="alert alert-${alert} m-0 p-0" role="alert">${
     excuse.status
   }</div></span></td>
-            <td class="text-center">${duration}</span></td>
+            <td class="text-center">${formatHours(duration)}</span></td>
             </tr>
   `;
 }
@@ -70,7 +75,7 @@ function renderExcuse(excuse, includeName) {
 function renderExcuseTableHead(includeName) {
   return `
       <tr>
-        ${includeName && '<th class="text-center">Requester Name</th>'}
+        ${includeName ? '<th class="text-center">Requester Name</th>' : ""}
         <th scope="col">Excuse Type</th>
         <th scope="col">Excuse Date</th>
         <th scope="col">From Time</th>

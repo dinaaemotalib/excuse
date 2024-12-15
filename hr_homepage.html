@@ -88,11 +88,11 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="hr_ex_leaves.html">My Excuses</a>
+              <a class="nav-link" href="excuserequests.html">My Excuses</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="hr_ex_leaves.html">My Leaves</a>
+              <a class="nav-link" href="leaverequests.html">My Leaves</a>
             </li>
 
             <li class="nav-item">
@@ -447,12 +447,12 @@
                   <div class="form-group">
                     <label for="leaveType">Leave Type</label>
                     <select class="form-control" id="leaveType" required>
-                      <option>choose your leave type</option>
-                      <option>Annual Leaves</option>
-                      <option>Sick Leave</option>
-                      <option>Relative Death</option>
-                      <option>Hajj Leave</option>
-                      <option>Labor Leave</option>
+                      <option value="" disabled selected>Choose your leave type</option>
+                      <option value="Annual Leaves">Annual Leaves</option>
+                      <option value="Sick Leave">Sick Leave</option>
+                      <option value="Death Leave">Death Leave</option>
+                      <option value="Hajj Leave">Hajj Leave</option>
+                      <option value="Labor Leave">Labor Leave</option>
                     </select>
                   </div>
 
@@ -469,56 +469,14 @@
 
                   <div class="form-group">
                     <label for="leaveType">Choose Your Senior</label>
-                    <select class="form-control" id="leaveSenior" required>
-                      <option>choose your senior</option>
-                      <option value="diaatarek@eg.aiecons.com">Eng. Diaa Tarek</option>
-                      <option value="ahmed.mahmoud@eg.aiecons.com">Eng. Ahmed Mahmoud</option>
-                      <option value="Hala.Abdullah@eg.aiecons.com">Eng. Hala Abdullah</option>
-                      <option value="haya.elleithy@eg.aiecons.com">Eng. Haya El Leithy</option>
-                      <option value="MohamedSherif@eg.aiecons.com">Eng. Mohamed Sherif</option>
-                      <option value="minnatallah.elkaaki@eg.aiecons.com">Eng. Mennatallah El Kaaki</option>
-                      <option value="mohamed.adel@eg.aiecons.com">Eng. Mohamed Adel</option>
-                      <option value="mahmoud.salah@eg.aiecons.com">Dr. Mahmoud Salah</option>
-                      <option value="Ahmed.Kamhawy@eg.aiecons.com">Eng. Ahmed Kamhawy</option>
-                      <option value="mostafa.helmy@eg.aiecons.com">Eng. Mostafa Helmy</option>
-                      <option value="Ahmed.Moustafa@eg.aiecons.com">Dr. Ahmed Hany</option>
-                    </select>
+                    <select class="form-control" id="leaveRequestSelectOption" required></select>
                   </div>
-
-                  <div class="mb-3">
-                    <label for="doc" class="form-label"
-                      >upload any supporting documents (e.g., medical prescription)</label
-                    >
-                    <input class="form-control" type="file" id="doc" />
-                  </div>
-
-                  <!-- <label for="exampleFormControlInput1">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                  
-
-
-
-                  <div class="form-group">
-                    <label for="exampleFormControlSelect2">Example multiple select</label>
-                    <select multiple class="form-control" id="exampleFormControlSelect2">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                  </div>
-                  
-                   <div class="mb-3">
-                     <label for="message-text" class="col-form-label">Message:</label>
-                     <textarea class="form-control" id="message-text"></textarea>
-                   </div> -->
                 </div>
               </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-outline-info">Send Request</button>
+              <button type="submit" class="btn btn-outline-info" id="leavebtn">Send Request</button>
             </div>
           </div>
         </div>
@@ -567,27 +525,14 @@
 
                   <div class="form-group">
                     <label for="leaveType">Choose Your Senior</label>
-                    <select class="form-control" id="leaveSenior" required>
-                      <option>choose your senior</option>
-                      <option value="diaatarek@eg.aiecons.com">Eng. Diaa Tarek</option>
-                      <option value="ahmed.mahmoud@eg.aiecons.com">Eng. Ahmed Mahmoud</option>
-                      <option value="Hala.Abdullah@eg.aiecons.com">Eng. Hala Abdullah</option>
-                      <option value="haya.elleithy@eg.aiecons.com">Eng. Haya El Leithy</option>
-                      <option value="MohamedSherif@eg.aiecons.com">Eng. Mohamed Sherif</option>
-                      <option value="minnatallah.elkaaki@eg.aiecons.com">Eng. Mennatallah El Kaaki</option>
-                      <option value="mohamed.adel@eg.aiecons.com">Eng. Mohamed Adel</option>
-                      <option value="mahmoud.salah@eg.aiecons.com">Dr. Mahmoud Salah</option>
-                      <option value="Ahmed.Kamhawy@eg.aiecons.com">Eng. Ahmed Kamhawy</option>
-                      <option value="mostafa.helmy@eg.aiecons.com">Eng. Mostafa Helmy</option>
-                      <option value="Ahmed.Moustafa@eg.aiecons.com">Dr. Ahmed Hany</option>
-                    </select>
+                    <select class="form-control" id="excuseRequestSelectOption" required></select>
                   </div>
                 </div>
               </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-outline-info">Send Request</button>
+              <button type="submit" class="btn btn-outline-info" id="excusebtn">Send Request</button>
             </div>
           </div>
         </div>
@@ -598,27 +543,8 @@
     </section>
     <!--end home page-->
 
-    <!--script-->
-
-    <script>
-      document.addEventListener("scroll", function () {
-        var navbar = document.getElementById("navbar");
-        if (window.scrollY > 50) {
-          // adjust this value
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
-      });
-
-      const headerEl = document.querySelector(".header");
-    </script>
-
-    <!--script-->
-
     <!--script links-->
 
-    <script type="module" src="backend/pages/empPage.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- <script  src="js/empHome.js"></script> -->
@@ -631,14 +557,8 @@
       integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
       crossorigin="anonymous"
     ></script>
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@4.2.0/main.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@4.2.0/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.2.0/main.min.js"></script> -->
-
-    <!--script links-->
+    <script type="module" src="backend/modules/header.js"></script>
+    <script type="module" src="backend/modules/user.js"></script>
+    <script type="module" src="backend/modules/requests.js"></script>
   </body>
 </html>

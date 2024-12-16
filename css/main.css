@@ -51,6 +51,11 @@ body {
   z-index: 999; /* Ensure it stays above other elements */
 }
 
+
+.navbar.scrolled {
+  background-color: #3b5998 !important;
+}
+
 /* Default Navbar Style transition used to make it go easily */
 .navbar-custom {
   background-color: transparent;
@@ -1989,6 +1994,10 @@ ul {
     width: 100%; /* Ensure the collapsible part spans the full width */
   }
 
+  .wow{
+    margin-top: 50px;
+  }
+
   .nav-link {
     display: flex; /* Use flexbox for alignment */
     /* justify-content: center;
@@ -2106,9 +2115,11 @@ ul {
   .hello-sector {
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
+    margin: 50px 50px 0 50px;
     padding-top: 10px;
     gap: 20px; /* Space between stacked items */
+
+
   }
 
   .hello-left,
@@ -2180,6 +2191,9 @@ ul {
     font-size: 1rem; /* Smaller header font size on small screens */
   }
 
+  
+  
+
   #loginnnnnnn nav {
     padding: 0;
   }
@@ -2248,10 +2262,10 @@ ul {
     font-size: medium;
   }
 
-  .hello-sector {
+  /* .hello-sector {
     margin-top: 30px;
     padding-top: 5px;
-  }
+  } */
 
   .row {
     display: flex;

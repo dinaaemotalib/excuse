@@ -305,9 +305,6 @@ body {
   background-color: var(--light-gray);
 }
 
-.bg-primary {
-  /* background: #3b589870 !important; */
-}
 
 .modal-title {
   text-align: center !important;

@@ -832,6 +832,28 @@ footer {
   z-index: 0;
 }
 
+/* Style for the toggle button */
+#sidebar-toggle {
+  background-color: #3b5998; /* Facebook blue */
+  border: none;
+  border-radius: 0 5px 5px 0;
+  padding: 10px 15px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  color: white; /* Arrow color */
+}
+
+/* Hover effect */
+#sidebar-toggle:hover {
+  background-color: white; /* White background on hover */
+  color: #3b5998; /* Arrow color changes to Facebook blue */
+}
+
+/* Rotate the arrow when sidebar is open */
+#offcanvasWithBothOptions.show + #sidebar-toggle .fa-arrow-right {
+  transform: rotate(180deg);
+}
+
 .fc-daygrid-body {
   position: relative !important;
   overflow: visible !important;
@@ -893,44 +915,55 @@ footer {
 /*emp cards*/
 
 .gr-1 {
-  background: linear-gradient(170deg, #01e4f8 0%, #1d3ede 100%);
+  /* background: linear-gradient(170deg, #01e4f8 0%, #1d3ede 100%); */
+  background: linear-gradient(170deg, #3b5998 0%, #1d3dde8d 100%);
 }
 
 .gr-2 {
-  background: linear-gradient(170deg, #b4ec51 0%, #429321 100%);
+   background: linear-gradient(170deg, #3b5998 0%, #1d3dde8d 100%);
+  /* background: linear-gradient(170deg, #b4ec51 0%, #429321 100%); */
 }
 
 .gr-3 {
-  background: linear-gradient(170deg, #c86dd7 0%, #3023ae 100%);
+   background: linear-gradient(170deg, #3b5998 0%, #1d3dde8d 100%);
+  /* background: linear-gradient(170deg, #c86dd7 0%, #3023ae 100%); */
 }
 
 .gr-4 {
-  background: linear-gradient(170deg, #ff6a00 0%, #ee1b24 100%);
+   background: linear-gradient(170deg, #3b5998 0%, #1d3dde8d 100%);
+  /* background: linear-gradient(170deg, #ff6a00 0%, #ee1b24 100%); */
 }
 
 .gr-5 {
-  background: linear-gradient(170deg, #ff5f6d 0%, #ffc371 100%);
+   background: linear-gradient(170deg, #3b5998 0%, #1d3dde8d 100%);
+  /* background: linear-gradient(170deg, #ff5f6d 0%, #ffc371 100%); */
 }
 
 .gr-6 {
-  background: linear-gradient(170deg, #2bc0e4 0%, #eaecc6 100%); /* Teal to Light Yellow */
+  background: linear-gradient(170deg, #3b5998 0%, #1d3dde8d 100%);
+  /* background: linear-gradient(170deg, #2bc0e4 0%, #eaecc6 100%);  */
 }
 
 .gr-7 {
-  background: linear-gradient(170deg, #01e4f8 0%, #1d3ede 100%);
+   background: linear-gradient(170deg, #3b5998 0%, #1d3dde8d 100%);
+  /* background: linear-gradient(170deg, #01e4f8 0%, #1d3ede 100%); */
 }
 
 .gr-8 {
-  background: linear-gradient(170deg, #6a11cb 0%, #2575fc 100%);
+   background: linear-gradient(170deg, #3b5998 0%, #1d3dde8d 100%);
+  /* background: linear-gradient(170deg, #6a11cb 0%, #2575fc 100%); */
 }
 
 .gr-9 {
-  background: linear-gradient(170deg, #f9d423 0%, #ff4e50 100%);
+   background: linear-gradient(170deg, #3b5998 0%, #1d3dde8d 100%);
+  /* background: linear-gradient(170deg, #f9d423 0%, #ff4e50 100%); */
 }
 .gr-10 {
-  background: linear-gradient(135deg, #3b5998, #8b9dc3);
+   background: linear-gradient(170deg, #3b5998 0%, #1d3dde8d 100%);
+  /* background: linear-gradient(135deg, #3b5998, #8b9dc3); */
 }
 .gr-11 {
+   /* background: linear-gradient(170deg, #3b5998 0%, #1d3dde8d 100%); */
   background: linear-gradient(135deg, #a7aabd, #d3d3e0);
 }
 
@@ -1047,6 +1080,12 @@ p {
 
 .requests-word {
   color: var(--blue-color) !important;
+}
+
+/* General table styles */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /*profile page*/
@@ -1980,6 +2019,63 @@ ul {
     background-color: var(--blue-color);
     width: 100%; /* Ensure nav spans the full width */
     padding: 10px; /* Remove extra padding */
+  }
+
+  .table th:nth-child(5), /* Approval Name */
+  .table td:nth-child(5),
+  .table th:nth-child(6), /* Status */
+  .table td:nth-child(6),
+  .table th:nth-child(6), /* Approval */
+  .table td:nth-child(6),
+  .table th:nth-child(7), /* Status */
+  .table td:nth-child(7) {
+    display: none;
+  }
+
+  /* Make table cells stack vertically */
+  .table-responsive table,
+  .table-responsive thead,
+  .table-responsive tbody,
+  .table-responsive th,
+  .table-responsive td,
+  .table-responsive tr {
+    display: block;
+  }
+
+  /* Hide table headers on small screens */
+  .table-responsive thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  /* Style table rows */
+  .table-responsive tr {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+
+  /* Style table cells */
+  .table-responsive td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+    white-space: normal;
+    text-align: left;
+  }
+
+  /* Add labels for table cells */
+  .table-responsive td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+    content: attr(data-label);
   }
 
   .nav {

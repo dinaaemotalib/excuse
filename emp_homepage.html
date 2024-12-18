@@ -73,9 +73,9 @@
         <!-- Navbar Links -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-lg-5">
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#">Home</a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a
                 class="nav-link"
@@ -96,7 +96,17 @@
           </ul>
 
           <!-- Icons (Notification and Profile) -->
+           
+            <!-- Logout Button -->
+
+
           <div class="icon-group d-flex align-items-center ms-auto">
+            <!-- <button class="btn btn-outline-danger text-center mx-3" id="logout-btn">
+            <i class="fa-solid fa-arrow-right-from-bracket "></i>
+            </button> -->
+            <button class="btn text-center me-2" id="logout-btn">
+              <i class="fa-solid fa-arrow-right-from-bracket fs-5"></i>
+              </button>
             <div data-bs-toggle="modal" data-bs-target="#notificationModal" class="me-3" id="bell-notification-icon">
               <i class="fas fa-bell text-white fs-5 position-relative">
                 <span
@@ -142,6 +152,16 @@
     <!--home page-->
     <section id="emphome">
       <!--sidebar-->
+            <button
+             class="btn btn-outline-dark position-fixed start-0 top-50 ms-1 translate-middle-y z-4"
+              id="sidebar-toggle"
+             data-bs-toggle="offcanvas"
+             data-bs-target="#offcanvasWithBothOptions"
+              aria-controls="offcanvasWithBothOptions"
+               >
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
       <div
         class="offcanvas offcanvas-start z-3"
         data-bs-scroll="true"
@@ -215,19 +235,19 @@
       <div class="hello-sector rounded-3 px-5 d-flex justify-content-between flex-wrap">
         <!-- Left Section -->
         <div class="hello-left d-flex flex-column justify-content-center">
-          <h2 class="mb-3 fw-bolder fs-2 hello-text">
+          <h2 class="mt-5 fw-bolder fs-2 hello-text">
             <span id="emp-name"></span>
             <img src="images/homewave.png" alt="Wave Icon" />
           </h2>
-          <span id="emp-role"></span>
+          <span class="mb-5" id="emp-role"></span>
         </div>
 
         <!-- Right Section -->
-        <div class="hello-right d-flex align-items-center">
+        <!-- <div class="hello-right d-flex align-items-center">
           <img src="images/welcomehome2.png" alt="Welcome Icon" class="welcome-image" />
           <h2 class="mb-3 fw-bolder fs-2 welcome-text">WELCOME</h2>
           <img src="images/welcomehome.png" alt="Additional Welcome Icon" class="welcome-image" />
-        </div>
+        </div> -->
       </div>
 
       <!--end hello-->
